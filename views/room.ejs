@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,26 @@
   <script src="script.js" defer></script>
   <title>Document</title>
   <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    }
+
+    #header {
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 2px 4px 0 hsla(0, 0%, 63.5%, .5);
+      border-bottom: 1px solid #d0d0d0;
+      font-size: 24px;
+    }
+
     #video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, 300px);
       grid-auto-rows: 300px;
     }
-    
+
     video {
       width: 100%;
       height: 100%;
@@ -25,7 +40,10 @@
     }
   </style>
 </head>
+
 <body>
+  <div id='header'>Welcome to Live streaming using Node js</div>
   <div id="video-grid"></div>
 </body>
+
 </html>
