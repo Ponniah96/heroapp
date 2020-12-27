@@ -4,8 +4,9 @@ const myPeer = new Peer(undefined, {
   host: '/',
   port: '3001'
 })
-const myVideo = document.createElement('video')
-myVideo.muted = true
+const myVideo = document.createElement('video');
+myVideo.controls= true;
+//myVideo.muted = true
 const peers = {}
 navigator.mediaDevices.getUserMedia({
   video: true,
