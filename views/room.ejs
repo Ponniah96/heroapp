@@ -27,6 +27,26 @@
       font-size: 24px;
     }
 
+    #own-video-grid {
+      display: block;
+      margin: 0px auto;
+      height: 400px;
+      width: 600px;
+    }
+
+    @media(max-width:767px) {
+      #own-video-grid {
+        height: 250px;
+        width: 300px;
+      }
+    }
+
+    #own-video-grid video {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
     #video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, 300px);
@@ -43,6 +63,7 @@
 
 <body>
   <div id='header'>Welcome to Live streaming using Node js</div>
+  <div id="own-video-grid"></div>
   <div id="video-grid"></div>
 </body>
 
