@@ -1,5 +1,6 @@
 const socket = io('/');
-console.log("Room ID: ",socket.emit('join-room',ROOM_ID,10));
+ 
+socket.emit('join-room', ROOM_ID, 10);
 const videoGrid = document.getElementById('video-grid')
 var myPeer = new Peer({
   secure:true,
