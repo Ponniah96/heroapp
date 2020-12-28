@@ -19,12 +19,12 @@ app.get('/:room', (req, res) => {
 io.on('connection', socket => {
   const id=uuidV4()
   console.log('io connected',id);
-  socket.on('join-room', (roomId, userId) => {
-    socket.join(roomId)
-    socket.to(roomId).broadcast.emit('user-connected', userId)
-    console.log("socket connected: ",roomId);
+  socket.on('join-room', (id, userId) => {
+    socket.join(id)
+    socket.to(id).broadcast.emit('user-connected', userId)
+    console.log("socket connected: ",id);
     socket.on('disconnect', () => {
-      socket.to(roomId).broadcast.emit('user-disconnected', userId)
+      socket.to(id).broadcast.emit('user-disconnected', userId)
     })
   })
 })
