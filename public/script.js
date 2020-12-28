@@ -2,7 +2,8 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 var myPeer = new Peer(undefined, {
   secure:true,
-  host: 'bell-3streaming.herokuapp.com',
+ // host: 'bell-3streaming.herokuapp.com',
+  host: '/',
   port:443,
 })
 const ownvideoGrid = document.getElementById('own-video-grid');
