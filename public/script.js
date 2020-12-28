@@ -8,12 +8,16 @@ socket.on('user-connected',userId=>{
 
 
 const videoGrid = document.getElementById('video-grid')
-var myPeer = new Peer({
-  secure:true,
-  host: 'bell-3streaming.herokuapp.com',
-  port:443,
-  path:'/'
+const myPeer = new Peer({
+  host:'/',
+  port:'3001'
 })
+// var myPeer = new Peer({
+//   secure:true,
+//   host: 'bell-3streaming.herokuapp.com',
+//   port:443,
+//   path:'/'
+// })
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.createElement('video');
 myOwnVideo.controls= true;
@@ -22,11 +26,9 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
-  console.log('App Started');
   addOwnVideoStream(myOwnVideo, stream);
   myPeer.on('call', call => {
     call.answer(stream);
-    console.log('peer calls');
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream);
@@ -34,7 +36,6 @@ navigator.mediaDevices.getUserMedia({
   })
 
   socket.on('user-connected', userId => {
-    console.log('User ID: ',userId)
     connectToNewUser(userId, stream)
   })
 })
@@ -52,7 +53,6 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   call.on('stream', userVideoStream => {
-    console.log("New User connected");
     addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
