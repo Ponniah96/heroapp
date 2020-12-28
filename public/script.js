@@ -1,7 +1,7 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
-  host: 'https://bell-3streaming.herokuapp.com/',
+  host: 'bell-3streaming.herokuapp.com',
   secure:true,
   port:'3001'
 })
