@@ -8,17 +8,16 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  console.log("Room ID: ",uuidV4());
+  console.log("Room Id: ",uuidV4());
   res.redirect(`/${uuidV4()}`)
 })
 
 app.get('/:room', (req, res) => {
-  
   res.render('room', { roomId: req.params.room })
 })
 
 io.on('connection', socket => {
-  console.log('io connected: ');
+  console.log('io connected',uuidV4);
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.to(roomId).broadcast.emit('user-connected', userId)
