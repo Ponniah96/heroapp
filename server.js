@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const server = require('http').Server(app);
+//const server = require('http').Server(app);
 //const io = require('socket.io')(server);
-const servers = require('https').createServer({
+const server = require('https').createServer({
   key: fs.readFileSync('server-key.pem'),
   cert: fs.readFileSync('server-cert.pem')
 });
-const io = require('socket.io')(servers);
+const io = require('socket.io')(server);
 const { v4: uuidV4 } = require('uuid')
 var PORT=process.env.PORT || 3000;
 app.set('view engine', 'ejs')
