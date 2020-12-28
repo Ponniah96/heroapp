@@ -3,7 +3,8 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   host: 'bell-3streaming.herokuapp.com',
   secure:true,
-  port:443
+  port:443,
+  path:'/peerjs'
 })
 // const myVideo = document.createElement('video');
 // myVideo.controls= true;
