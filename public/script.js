@@ -18,6 +18,7 @@ navigator.mediaDevices.getUserMedia({
   audio: true
 }).then(stream => {
   //addVideoStream(myVideo, stream);
+  console.log('App Started');
   addOwnVideoStream(myOwnVideo, stream);
   myPeer.on('call', call => {
     call.answer(stream);
