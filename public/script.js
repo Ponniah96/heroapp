@@ -1,6 +1,12 @@
 const socket = io('/');
  
 socket.emit('join-room', ROOM_ID, 10);
+
+socket.on('user-connected',userId=>{
+  console.log('User Connected: '+userId);
+})
+
+
 const videoGrid = document.getElementById('video-grid')
 var myPeer = new Peer({
   secure:true,
