@@ -59,11 +59,55 @@
       height: 100%;
       object-fit: cover;
     }
+
+    #screen-share {
+      text-align: center;
+    }
+
+    #video {
+      width: 90%;
+      height: 500px;
+      border: 1px solid;
+      display: none;
+      margin: 0px auto;
+    }
+
+    @media(max-width: 565px) {
+      #video {
+        height: 400px;
+      }
+    }
+
+    .screen-share {
+      display: block !important;
+    }
+
+    #start {
+      background: limegreen;
+      color: white;
+      border: 1px solid limegreen;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+
+
+    #stop {
+      background: red;
+      color: white;
+      border: 1px solid red;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
 <body>
   <div id='header'>Welcome to Live streaming using Node js</div>
+  <div id="screen-share">
+    <p>Click the Start Capture button to begin.</p>
+    <p><button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button></p>
+    <video id="video" autoplay></video>
+  </div>
   <div id="own-video-grid"></div>
   <div id="video-grid"></div>
 </body>

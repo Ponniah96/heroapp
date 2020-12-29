@@ -1,11 +1,5 @@
 const socket = io('/');
 
-// const myPeer = new Peer({
-//   host:'/',
-//   port:'3001'
-// })
-
-
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 
 myPeer.on('open', id => {
@@ -71,4 +65,45 @@ function addOwnVideoStream(video, stream) {
     video.play()
   })
   ownvideoGrid.append(video)
+}
+
+
+
+const videoElem = document.getElementById("video");
+const startElem = document.getElementById("start");
+const stopElem = document.getElementById("stop");
+
+// Options for getDisplayMedia()
+
+var displayMediaOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: false
+};
+
+// Set event listeners for the start and stop buttons
+startElem.addEventListener("click", function (evt) {
+  startCapture();
+}, false);
+
+stopElem.addEventListener("click", function (evt) {
+  stopCapture();
+}, false);
+
+async function startCapture() {
+  try {
+    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    videoElem.classList.add('screen-share');
+  } catch (err) {
+    console.error("Error: " + err);
+  }
+}
+
+function stopCapture(evt) {
+  let tracks = videoElem.srcObject.getTracks();
+
+  tracks.forEach(track => track.stop());
+  videoElem.srcObject = null;
+  videoElem.classList.remove('screen-share');
 }
