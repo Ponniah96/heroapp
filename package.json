@@ -1,10 +1,10 @@
 {
   "name": "zoom-clone",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "peerjs --port 443 --key peerjs --path /bell-3streaming"
   },
   "keywords": [],
   "author": "",
@@ -16,16 +16,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
     "nodemon": "^2.0.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ponniah96/heroapp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Ponniah96/heroapp/issues"
-  },
-  "homepage": "https://github.com/Ponniah96/heroapp#readme",
-  "description": ""
+  }
 }
