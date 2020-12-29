@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js",
-    "start": "peerjs --port 443 --key peerjs --path /bell-3streaming"
+    "devStart": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

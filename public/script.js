@@ -11,11 +11,15 @@ const socket = io('/');
 //   port:'3001'
 // })
 
-const myPeer = new Peer(undefined,{
-  secure:true,
-  host: 'bell-3streaming.herokuapp.com',
-  port:443,
-})
+// const myPeer = new Peer(undefined,{
+//   secure:true,
+//   host: 'bell-3streaming.herokuapp.com',
+//   port:443,
+// })
+
+// "start": "peerjs --port 443 --key peerjs --path /bell-3streaming"
+
+const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);

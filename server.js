@@ -1,11 +1,13 @@
 const express = require('express');
-const app = express()
+const app = express();
+const path = require('path');
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 const PORT=process.env.PORT || 3000;
-app.set('view engine', 'ejs')
-app.use(express.static(__dirname + 'public'))
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
   res.redirect(`/${uuidV4()}`)
