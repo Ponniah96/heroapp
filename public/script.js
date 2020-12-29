@@ -6,17 +6,16 @@ const socket = io('/');
 //   console.log('User Connected: '+userId);
 // })
 
-const myPeer = new Peer({
-  host:'/',
-  port:'3001'
-})
-
-// var myPeer = new Peer({
-//   secure:true,
-//   host: 'bell-3streaming.herokuapp.com',
-//   port:443,
-//   path:'/'
+// const myPeer = new Peer({
+//   host:'/',
+//   port:'3001'
 // })
+
+const myPeer = new Peer({
+  secure:true,
+  host: 'bell-3streaming.herokuapp.com',
+  port:'443',
+})
 
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);

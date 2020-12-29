@@ -28,3 +28,8 @@ io.on('connection', socket => {
 })
 
 server.listen(PORT);
+
+// srv = app.listen(process.env.PORT)
+// app.use('/peerjs', require('peer').ExpressPeerServer(srv, {
+// 	debug: true
+// }))
