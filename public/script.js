@@ -1,15 +1,15 @@
 const socket = io('/');
 
-socket.emit('join-room', ROOM_ID, 10);
+// socket.emit('join-room', ROOM_ID, 10);
 
-socket.on('user-connected',userId=>{
-  console.log('User Connected: '+userId);
-})
-
-// const myPeer = new Peer({
-//   host:'/',
-//   port:'3001'
+// socket.on('user-connected',userId=>{
+//   console.log('User Connected: '+userId);
 // })
+
+const myPeer = new Peer({
+  host:'/',
+  port:'3001'
+})
 
 // var myPeer = new Peer({
 //   secure:true,
@@ -18,13 +18,13 @@ socket.on('user-connected',userId=>{
 //   path:'/'
 // })
 
-// myPeer.on('open', id => {
-//   socket.emit('join-room', ROOM_ID, id);
-// })  
+myPeer.on('open', id => {
+  socket.emit('join-room', ROOM_ID, id);
+})  
 
-// socket.on('user-connected',userId=>{
-//   console.log('User Connected: '+userId);
-// })
+socket.on('user-connected',userId=>{
+  console.log('User Connected: '+userId);
+})
 
 // const videoGrid = document.getElementById('video-grid');
 // const ownvideoGrid = document.getElementById('own-video-grid');
