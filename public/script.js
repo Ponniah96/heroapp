@@ -15,6 +15,7 @@ const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.createElement('video');
 myOwnVideo.controls= true;
 const peers = {}
+myOwnVideo.muted=true;
 navigator.mediaDevices.getUserMedia({
   //video: true,
   audio: true
