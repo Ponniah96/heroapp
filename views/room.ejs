@@ -114,6 +114,28 @@
       padding: 10px 20px;
       border-radius: 4px;
     }
+
+    #video-controls {
+      text-align: center;
+      display: block;
+    }
+
+    #camera-on {
+      background: limegreen;
+      color: white;
+      border: 1px solid limegreen;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+
+
+    #camera-off {
+      background: red;
+      color: white;
+      border: 1px solid red;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
@@ -134,6 +156,10 @@
   </video> -->
 
   <div id="own-video-grid">
+    <div id="video-controls">
+      <div id="camera-on">Start Camera</div>
+      <div id="camera-off">Stop Camera</div>
+    </div>
   </div>
   <div id="video-grid">
   </div>

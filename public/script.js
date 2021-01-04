@@ -14,7 +14,19 @@ const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.createElement('video');
 myOwnVideo.controls= true;
-const peers = {}
+const peers = {};
+const startCamera= document.getElementById('camera-on');
+const stopCamera=document.getElementById('camera-off');
+startCamera.addEventListener('click',function(){
+  navigator.mediaDevices.getUserMedia({
+    video:true
+  })
+});
+stopCamera.addEventListener('click',function(){
+  navigator.mediaDevices.getUserMedia({
+    video:false
+  })
+})
 myOwnVideo.muted=true;
 navigator.mediaDevices.getUserMedia({
   //video: true,
