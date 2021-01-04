@@ -20,7 +20,7 @@ const stopCamera=document.getElementById('camera-off');
 startCamera.addEventListener('click',function(){
   navigator.mediaDevices.getUserMedia({
     video:true
-  })
+  }).then
 });
 stopCamera.addEventListener('click',function(){
   navigator.mediaDevices.getUserMedia({
@@ -28,6 +28,7 @@ stopCamera.addEventListener('click',function(){
   })
 })
 myOwnVideo.muted=true;
+myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
 navigator.mediaDevices.getUserMedia({
   //video: true,
   audio: true
