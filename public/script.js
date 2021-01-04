@@ -15,18 +15,6 @@ const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.createElement('video');
 myOwnVideo.controls= true;
 const peers = {};
-const startCamera= document.getElementById('camera-on');
-const stopCamera=document.getElementById('camera-off');
-startCamera.addEventListener('click',function(){
-  navigator.mediaDevices.getUserMedia({
-    video:true
-  }).then
-});
-stopCamera.addEventListener('click',function(){
-  navigator.mediaDevices.getUserMedia({
-    video:false
-  })
-})
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
 myOwnVideo.paused=true;
