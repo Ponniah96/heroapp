@@ -17,7 +17,6 @@ myOwnVideo.controls= true;
 const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-myOwnVideo.paused=true;
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -72,41 +71,41 @@ function addOwnVideoStream(video, stream) {
 
 
 
-// const videoElem = document.getElementById("video");
-// const startElem = document.getElementById("start");
-// const stopElem = document.getElementById("stop");
+const videoElem = document.getElementById("video");
+const startElem = document.getElementById("start");
+const stopElem = document.getElementById("stop");
 
-// // Options for getDisplayMedia()
+// Options for getDisplayMedia()
 
-// var displayMediaOptions = {
-//   video: {
-//     cursor: "always"
-//   },
-//   audio: false
-// };
+var displayMediaOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: false
+};
 
-// // Set event listeners for the start and stop buttons
-// startElem.addEventListener("click", function (evt) {
-//   startCapture();
-// }, false);
+// Set event listeners for the start and stop buttons
+startElem.addEventListener("click", function (evt) {
+  startCapture();
+}, false);
 
-// stopElem.addEventListener("click", function (evt) {
-//   stopCapture();
-// }, false);
+stopElem.addEventListener("click", function (evt) {
+  stopCapture();
+}, false);
 
-// async function startCapture() {
-//   try {
-//     videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-//     videoElem.classList.add('screen-share');
-//   } catch (err) {
-//     console.error("Error: " + err);
-//   }
-// }
+async function startCapture() {
+  try {
+    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    videoElem.classList.add('screen-share');
+  } catch (err) {
+    console.error("Error: " + err);
+  }
+}
 
-// function stopCapture(evt) {
-//   let tracks = videoElem.srcObject.getTracks();
+function stopCapture(evt) {
+  let tracks = videoElem.srcObject.getTracks();
 
-//   tracks.forEach(track => track.stop());
-//   videoElem.srcObject = null;
-//   videoElem.classList.remove('screen-share');
-// }
+  tracks.forEach(track => track.stop());
+  videoElem.srcObject = null;
+  videoElem.classList.remove('screen-share');
+}
