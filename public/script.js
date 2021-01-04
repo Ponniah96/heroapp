@@ -29,8 +29,9 @@ stopCamera.addEventListener('click',function(){
 })
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
+myOwnVideo.paused=true;
 navigator.mediaDevices.getUserMedia({
-  //video: true,
+  video: true,
   audio: true
 }).then(stream => {
   addOwnVideoStream(myOwnVideo, stream);
