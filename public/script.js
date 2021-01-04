@@ -16,7 +16,7 @@ const myOwnVideo = document.createElement('video');
 myOwnVideo.controls= true;
 const peers = {}
 navigator.mediaDevices.getUserMedia({
-  video: true,
+  //video: true,
   audio: true
 }).then(stream => {
   addOwnVideoStream(myOwnVideo, stream);
