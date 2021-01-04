@@ -77,7 +77,7 @@ function addVideoStream(video, stream) {
 function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
-    video.play()
+    video.pause()
   })
   ownvideoGrid.append(video)
 }
