@@ -78,9 +78,10 @@ const stopElem = document.getElementById("stop");
 // Options for getDisplayMedia()
 
 var displayMediaOptions = {
-  video: {
-    cursor: "always"
-  },
+  // video: {
+  //   cursor: "always"
+  // },
+  video:true,
   audio: false
 };
 
