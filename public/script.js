@@ -97,6 +97,16 @@ async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
       addOwnVideoStream(videoElem, stream);
+      myPeer.on('call', call => {
+        call.answer(stream);
+        call.on('stream', userVideoStream => {
+          addVideoStream(videoElem, userVideoStream);
+        })
+      })
+    
+      socket.on('user-connected', userId => {
+        connectToNewUser(userId, stream)
+      })
       });
     videoElem.classList.add('screen-share');
   } catch (err) {
