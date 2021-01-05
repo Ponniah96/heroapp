@@ -78,10 +78,9 @@ const stopElem = document.getElementById("stop");
 // Options for getDisplayMedia()
 
 var displayMediaOptions = {
-  // video: {
-  //   cursor: "always"
-  // },
-  video:true,
+  video: {
+    cursor: "never"
+  },
   audio: false
 };
 
@@ -96,7 +95,9 @@ stopElem.addEventListener("click", function (evt) {
 
 async function startCapture() {
   try {
-    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
+      this.initStream();
+      });
     videoElem.classList.add('screen-share');
   } catch (err) {
     console.error("Error: " + err);
