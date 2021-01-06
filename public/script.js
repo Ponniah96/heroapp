@@ -96,18 +96,18 @@ stopElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      //addOwnVideoStream(videoElem, stream);
+      addScreenShareStream(videoElem, stream);
       
     videoElem.classList.add('screen-share');
-      myPeer.on('call', call => {
-        call.answer(stream);
-        call.on('stream', userVideoStream => {
-          addScreenShareStream(videoElem, userVideoStream);
-        })
-      })
-      socket.on('user-connected', userId => {
-        connectToNewUser(userId, stream)
-      })
+      // myPeer.on('call', call => {
+      //   call.answer(stream);
+      //   call.on('stream', userVideoStream => {
+      //     addScreenShareStream(videoElem, userVideoStream);
+      //   })
+      // })
+      // socket.on('user-connected', userId => {
+      //   connectToNewUser(userId, stream)
+      // })
       });
   } catch (err) {
     console.error("Error: " + err);
