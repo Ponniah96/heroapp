@@ -17,31 +17,31 @@ myOwnVideo.controls= true;
 const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-const startVideo=document.getElementById('camera-on');
-const stopVideo=document.getElementById('camera-off');
-startVideo.addEventListener("click", function (evt) {
-  startCamera();
-}, false);
+// const startVideo=document.getElementById('camera-on');
+// const stopVideo=document.getElementById('camera-off');
+// startVideo.addEventListener("click", function (evt) {
+//   startCamera();
+// }, false);
 
-stopVideo.addEventListener("click", function (evt) {
-  stopCamera();
-}, false);
+// stopVideo.addEventListener("click", function (evt) {
+//   stopCamera();
+// }, false);
 
-var displayOptions;
+// var displayOptions;
 
-async function startCamera() {
-  displayOptions = {
-    video: true
-  };
-}
+// async function startCamera() {
+//   displayOptions = {
+//     video: true
+//   };
+// }
 
-function stopCamera() {
-  displayOptions = {
-    video: false
-  };
-}
+// function stopCamera() {
+//   displayOptions = {
+//     video: false
+//   };
+// }
 
-navigator.mediaDevices.getUserMedia(displayOptions,{
+navigator.mediaDevices.getUserMedia( {video: true,
   audio: true
 }).then(stream => {
   console.log("Stream ",stream);
