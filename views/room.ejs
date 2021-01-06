@@ -62,7 +62,13 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, 300px);
       grid-auto-rows: 300px;
-      margin: 0px auto;
+      padding: 15px;
+    }
+
+    @media(max-width:767px) {
+      #video-grid {
+        grid-auto-rows: 200px;
+      }
     }
 
     #video-grid #my-video {
