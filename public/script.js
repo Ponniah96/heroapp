@@ -99,15 +99,15 @@ async function startCapture() {
       addScreenShareStream(videoElem, stream);
       
     videoElem.classList.add('screen-share');
-      // myPeer.on('call', call => {
-      //   call.answer(stream);
-      //   call.on('stream', userVideoStream => {
-      //     addScreenShareStream(videoElem, userVideoStream);
-      //   })
-      // })
-      // socket.on('user-connected', userId => {
-      //   connectToNewUser(userId, stream)
-      // })
+      myPeer.on('call', call => {
+        call.answer(stream);
+        call.on('stream', userVideoStream => {
+          addScreenShareStream(videoElem, userVideoStream);
+        })
+      })
+      socket.on('user-connected', userId => {
+        connectToNewUser(userId, stream)
+      })
       });
   } catch (err) {
     console.error("Error: " + err);
@@ -126,4 +126,16 @@ function addScreenShareStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
+}
+
+function connectToNewUser(userId, stream) {
+  const call = myPeer.call(userId, stream)
+  call.on('stream', userVideoStream => {
+    addScreenShareStream(videoElem, userVideoStream);
+  })
+  call.on('close', () => {
+    video.remove()
+  })
+
+  peers[userId] = call
 }
