@@ -96,7 +96,7 @@ stopElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      addScreenShareStream(videoElem, stream);
+    //addScreenShareStream(videoElem, stream);
       
     videoElem.classList.add('screen-share');
       myPeer.on('call', call => {
