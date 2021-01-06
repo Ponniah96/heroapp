@@ -106,7 +106,7 @@ async function startCapture() {
         })
       })
       socket.on('user-connected', userId => {
-        connectToNewUser(userId, stream)
+        connectToNewShareUser(userId, stream)
       })
       });
   } catch (err) {
@@ -128,7 +128,7 @@ function addScreenShareStream(video, stream) {
   })
 }
 
-function connectToNewUser(userId, stream) {
+function connectToNewShareUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   call.on('stream', userVideoStream => {
     addScreenShareStream(videoElem, userVideoStream);
