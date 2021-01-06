@@ -98,7 +98,7 @@ async function startCapture() {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
     //addScreenShareStream(videoElem, stream);
       
-    //videoElem.classList.add('screen-share');
+    videoElem.classList.add('screen-share');
       myPeer.on('call', call => {
         call.answer(stream);
         call.on('stream', userVideoStream => {
@@ -118,7 +118,7 @@ function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
   tracks.forEach(track => track.stop());
   videoElem.srcObject = null;
-  //videoElem.classList.remove('screen-share');
+  videoElem.classList.remove('screen-share');
 }
 
 function addScreenShareStream(video, stream) {
