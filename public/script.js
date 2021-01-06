@@ -17,20 +17,51 @@ myOwnVideo.controls= true;
 const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-const startVideo=document.getElementById('camera-on');
-const stopVideo=document.getElementById('camera-off');
-startVideo.addEventListener("click", function (evt) {
-  startCamera();
-}, false);
+// const startVideo=document.getElementById('camera-on');
+// const stopVideo=document.getElementById('camera-off');
+// startVideo.addEventListener("click", function (evt) {
+//   startCamera();
+// }, false);
 
-stopVideo.addEventListener("click", function (evt) {
-  stopCamera();
-}, false);
+// stopVideo.addEventListener("click", function (evt) {
+//   stopCamera();
+// }, false);
 
-async function startCamera() {
-  try {
+// async function startCamera() {
+//   try {
+//     navigator.mediaDevices.getUserMedia({
+//       video: true,
+//       audio: true
+//     }).then(stream => {
+//       console.log("Stream ",stream);
+//       addOwnVideoStream(myOwnVideo, stream);
+//         myPeer.on('call', call => {
+//           call.answer(stream);
+//           const video = document.createElement('video')
+//           call.on('stream', userVideoStream => {
+//           addVideoStream(video, userVideoStream);
+//         })
+//       })
+    
+//       socket.on('user-connected', userId => {
+//         connectToNewUser(userId, stream)
+//       })
+//     })
+//   } catch (err) {
+//     console.error("Error: " + err);
+//   }
+// }
+
+// function stopCamera() {
+//   let tracks = myOwnVideo.srcObject.getTracks();
+//   tracks.forEach(track => track.stop());
+//   myOwnVideo.srcObject = null;
+// }
+
+
+
     navigator.mediaDevices.getUserMedia({
-      video: true,
+      video: false,
       audio: true
     }).then(stream => {
       console.log("Stream ",stream);
@@ -47,16 +78,6 @@ async function startCamera() {
         connectToNewUser(userId, stream)
       })
     })
-  } catch (err) {
-    console.error("Error: " + err);
-  }
-}
-
-function stopCamera() {
-  let tracks = myOwnVideo.srcObject.getTracks();
-  tracks.forEach(track => track.stop());
-  myOwnVideo.srcObject = null;
-}
 
 socket.on('user-disconnected', userId => {
   console.log("User Disconnected",userId);
