@@ -19,43 +19,11 @@ myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
 const startVideo=document.getElementById('camera-on');
 const stopVideo=document.getElementById('camera-off');
-// startVideo.addEventListener("click", function (evt) {
-//   startCamera();
-// }, false);
-
-// stopVideo.addEventListener("click", function (evt) {
-//   stopCamera();
-// }, false);
-
-// var displayOptions;
-
-// async function startCamera() {
-//   displayOptions = {
-//     video: true
-//   };
-// }
-
-// function stopCamera() {
-//   displayOptions = {
-//     video: false
-//   };
-// }
 
 navigator.mediaDevices.getUserMedia( {
   audio: true
 }).then(stream => {
   console.log("Stream ",stream);
-  startVideo.addEventListener('click',function(e){
-    
-    navigator.mediaDevices.getUserMedia( {video: true
-    })
-  })
-  addOwnVideoStream(myOwnVideo, stream);
-  stopVideo.addEventListener('click',function(e){
-    //stopOwnVideoStream(myOwnVideo, stream);
-    navigator.mediaDevices.getUserMedia( {video: false
-    })
-  })
     myPeer.on('call', call => {
       call.answer(stream);
       const video = document.createElement('video')
@@ -66,6 +34,46 @@ navigator.mediaDevices.getUserMedia( {
 
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
+  })
+})
+
+startVideo.addEventListener('click',function(e){
+  navigator.mediaDevices.getUserMedia( {
+    video:true,
+    audio: true
+  }).then(stream => {
+    console.log("Stream ",stream);
+      myPeer.on('call', call => {
+        call.answer(stream);
+        const video = document.createElement('video')
+        call.on('stream', userVideoStream => {
+        addVideoStream(video, userVideoStream);
+      })
+    })
+  
+    socket.on('user-connected', userId => {
+      connectToNewUser(userId, stream)
+    })
+  })
+})
+
+stopVideo.addEventListener('click',function(e){
+  navigator.mediaDevices.getUserMedia( {
+    video:false,
+    audio: true
+  }).then(stream => {
+    console.log("Stream ",stream);
+      myPeer.on('call', call => {
+        call.answer(stream);
+        const video = document.createElement('video')
+        call.on('stream', userVideoStream => {
+        addVideoStream(video, userVideoStream);
+      })
+    })
+  
+    socket.on('user-connected', userId => {
+      connectToNewUser(userId, stream)
+    })
   })
 })
 
