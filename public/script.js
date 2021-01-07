@@ -23,7 +23,7 @@ const stopVideo=document.getElementById('camera-off');
 navigator.mediaDevices.getUserMedia( {
   audio: true
 }).then(stream => {
-  console.log("Stream ",stream);
+  addOwnVideoStream(myOwnVideo,stream);
     myPeer.on('call', call => {
       call.answer(stream);
       const video = document.createElement('video')
@@ -35,14 +35,21 @@ navigator.mediaDevices.getUserMedia( {
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
   })
+
+  socket.on('user-disconnected', userId => {
+    console.log("User Disconnected",userId);
+    if (peers[userId]){ peers[userId].close()}
+  })
+
 })
 
 startVideo.addEventListener('click',function(e){
+  console.log('On Camera');
   navigator.mediaDevices.getUserMedia( {
     video:true,
     audio: true
   }).then(stream => {
-    console.log("Stream ",stream);
+    addOwnVideoStream(myOwnVideo,stream);
       myPeer.on('call', call => {
         call.answer(stream);
         const video = document.createElement('video')
@@ -58,11 +65,12 @@ startVideo.addEventListener('click',function(e){
 })
 
 stopVideo.addEventListener('click',function(e){
+  console.log('Off Camera');
   navigator.mediaDevices.getUserMedia( {
     video:false,
     audio: true
   }).then(stream => {
-    console.log("Stream ",stream);
+    addOwnVideoStream(myOwnVideo,stream);
       myPeer.on('call', call => {
         call.answer(stream);
         const video = document.createElement('video')
@@ -75,11 +83,6 @@ stopVideo.addEventListener('click',function(e){
       connectToNewUser(userId, stream)
     })
   })
-})
-
-socket.on('user-disconnected', userId => {
-  console.log("User Disconnected",userId);
-  if (peers[userId]){ peers[userId].close()}
 })
 
 function connectToNewUser(userId, stream) {
