@@ -17,8 +17,8 @@ myOwnVideo.controls= true;
 const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-// const startVideo=document.getElementById('camera-on');
-// const stopVideo=document.getElementById('camera-off');
+const startVideo=document.getElementById('camera-on');
+const stopVideo=document.getElementById('camera-off');
 // startVideo.addEventListener("click", function (evt) {
 //   startCamera();
 // }, false);
@@ -45,7 +45,12 @@ navigator.mediaDevices.getUserMedia( {video: true,
   audio: true
 }).then(stream => {
   console.log("Stream ",stream);
-  addOwnVideoStream(myOwnVideo, stream);
+  startVideo.addEventListener('click',function(e){
+    addOwnVideoStream(myOwnVideo, stream);
+  })
+  stopVideo.addEventListener('click',function(e){
+    stopOwnVideoStream(myOwnVideo, stream);
+  })
     myPeer.on('call', call => {
       call.answer(stream);
       const video = document.createElement('video')
@@ -61,7 +66,7 @@ navigator.mediaDevices.getUserMedia( {video: true,
 
 socket.on('user-disconnected', userId => {
   console.log("User Disconnected",userId);
-  if (peers[userId]) peers[userId].close()
+  if (peers[userId]){ peers[userId].close()}
 })
 
 function connectToNewUser(userId, stream) {
@@ -71,7 +76,7 @@ function connectToNewUser(userId, stream) {
     addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
-    video.remove()
+    video.stop()
   })
 
   peers[userId] = call
@@ -89,6 +94,14 @@ function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play()
+  })
+  ownvideoGrid.append(video)
+}
+
+function stopOwnVideoStream(video, stream) {
+  video.srcObject = stream
+  video.addEventListener('loadedmetadata', () => {
+    video.stop();
   })
   ownvideoGrid.append(video)
 }
