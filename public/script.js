@@ -41,15 +41,20 @@ const stopVideo=document.getElementById('camera-off');
 //   };
 // }
 
-navigator.mediaDevices.getUserMedia( {video: true,
+navigator.mediaDevices.getUserMedia( {
   audio: true
 }).then(stream => {
   console.log("Stream ",stream);
   startVideo.addEventListener('click',function(e){
-    addOwnVideoStream(myOwnVideo, stream);
+    
+    navigator.mediaDevices.getUserMedia( {video: true
+    })
   })
+  addOwnVideoStream(myOwnVideo, stream);
   stopVideo.addEventListener('click',function(e){
-    stopOwnVideoStream(myOwnVideo, stream);
+    //stopOwnVideoStream(myOwnVideo, stream);
+    navigator.mediaDevices.getUserMedia( {video: false
+    })
   })
     myPeer.on('call', call => {
       call.answer(stream);
