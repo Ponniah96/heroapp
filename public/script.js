@@ -99,10 +99,9 @@ function addOwnVideoStream(video, stream) {
 }
 
 function stopOwnVideoStream(video, stream) {
-  video.srcObject = stream
-  video.addEventListener('loadedmetadata', () => {
-    video.stop();
-  })
+  let tracks = video.srcObject.getTracks();
+  tracks.forEach(track => track.stop());
+  video.srcObject = null;
   ownvideoGrid.append(video)
 }
 
