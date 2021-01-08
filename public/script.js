@@ -170,15 +170,15 @@ startElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
     navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      myPeer.on('call', call => {
-        call.answer(stream);
-        call.on('#video','stream', userVideoStream => {
-          addScreenShareStream(videoElem, userVideoStream);
-        })
-      })
-      // socket.on('user-connected', userId => {
-      //   connectToNewShareUser(userId, stream)
+      // myPeer.on('call', call => {
+      //   call.answer(stream);
+      //   call.on('#video','stream', userVideoStream => {
+      //     addScreenShareStream(videoElem, userVideoStream);
+      //   })
       // })
+      socket.on('user-connected', userId => {
+        connectToNewShareUser(userId, stream)
+      })
       // socket.on('user-disconnected', userId => {
       //   if (peers[userId]){ 
       //     peers[userId].close()
