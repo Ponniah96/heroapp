@@ -34,7 +34,7 @@ navigator.mediaDevices.getUserMedia( {
 }).then(stream => {
   addOwnVideoStream(myOwnVideo,stream);
   myPeer.on('call', call => {
-    otherVideo.classList.remove('d-none');
+    //otherVideo.classList.remove('d-none');
     call.answer(stream);
     call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream);
@@ -65,7 +65,7 @@ startVideo.addEventListener('click',function(){
 })
 
 function connectToNewUser(userId, stream) {
-  otherVideo.classList.remove('d-none');
+  //otherVideo.classList.remove('d-none');
   const call = myPeer.call(userId, stream);
   call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream)
