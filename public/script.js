@@ -49,13 +49,14 @@ navigator.mediaDevices.getUserMedia( {
     console.log(peers[userId]);
     if (peers[userId]){ 
       peers[userId].close();
-      $('#others').each(function(){
-        console.log($(this));
-        if($(this).classList.contains(userId)){
-          $(this).classList.add('d-none');
-        }
-      })    
+        
     }
+    $('#others').each(function(){
+      console.log($(this));
+      if($(this).classList.contains(userId)){
+        $(this).classList.add('d-none');
+      }
+    })  
   })
 
 })
