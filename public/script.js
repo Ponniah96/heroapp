@@ -162,7 +162,7 @@ startElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-    //addScreenShareStream(videoElem, stream);
+      addScreenShareStream(videoElem, stream);
       myPeer.on('call', call => {
         call.answer(stream);
         call.on('stream', userVideoStream => {
