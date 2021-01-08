@@ -51,11 +51,11 @@ navigator.mediaDevices.getUserMedia( {
       peers[userId].close();
         
     }
-    $('#others').each(function(e){
-      console.log(e);
-      if($(this).hasClass(userId)){
-        $(this).classList.add('d-none');
-      }
+    $('#others').each(function(e,o){
+      console.log(e,o);
+      // if($(this).hasClass(userId)){
+      //   $(this).classList.add('d-none');
+      // }
     })  
   })
 
