@@ -187,7 +187,6 @@ function stopCapture(evt) {
 
 function addScreenShareStream(video, stream) {
   video.srcObject = stream;
-  video.className="test";
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
