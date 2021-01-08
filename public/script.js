@@ -7,7 +7,7 @@ myPeer.on('open', id => {
 })  
 
 socket.on('user-connected',userId=>{
-  console.log('User Connected: '+userId);
+  console.log('User Connectedd: '+userId);
 })
 
 
