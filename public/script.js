@@ -35,7 +35,6 @@ navigator.mediaDevices.getUserMedia( {
   addOwnVideoStream(myOwnVideo,stream);
   myPeer.on('call', call => {
     otherVideo.classList.remove('d-none');
-    otherVideo.className=userId;
     call.answer(stream);
     call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream);
