@@ -20,6 +20,7 @@ myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-strea
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
+  video:true,
   audio: true
 }).then(stream => {
   addOwnVideoStream(myOwnVideo,stream);
