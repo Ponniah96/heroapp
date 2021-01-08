@@ -43,7 +43,10 @@ navigator.mediaDevices.getUserMedia( {
   })
 
   socket.on('user-disconnected', userId => {
-    if (peers[userId]){ peers[userId].close()}
+    if (peers[userId]){ 
+      peers[userId].close()
+      //connectToNewUser(userId, stream)
+    }
   })
 
 })
@@ -104,7 +107,6 @@ startVideo.addEventListener('click',function(){
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video');
-  video.className='test';
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
@@ -168,7 +170,7 @@ startElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      addScreenShareStream(videoElem, stream);
+      //addScreenShareStream(videoElem, stream);
       myPeer.on('call', call => {
         call.answer(stream);
         call.on('stream', userVideoStream => {
