@@ -98,6 +98,10 @@
       padding: 10px 20px;
       border-radius: 4px;
     }
+
+    .d-none {
+      display: none;
+    }
   </style>
 </head>
 
@@ -112,8 +116,8 @@
   <div id="own-video-grid">
     <video id="own" autoplay playsinline></video>
   </div>
-  <div id="video-grid" class="d-none">
-    <video id="others" playsinline></video>
+  <div id="video-grid">
+    <video id="others" class="d-none" playsinline></video>
   </div>
 
 </body>
