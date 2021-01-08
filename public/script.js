@@ -8,7 +8,6 @@ myPeer.on('open', id => {
 
 socket.on('user-connected',userId=>{
   console.log('User Connected: '+userId);
-  
 })
 
 socket.on('user-disconnected',userId=>{
@@ -27,12 +26,16 @@ const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
   video:true,
-  audio: true
+  audio:{
+    sampleSize:8,
+    echoCancellation:true
+  }
 }).then(stream => {
   addOwnVideoStream(myOwnVideo,stream);
     myPeer.on('call', call => {
       call.answer(stream);
-      const video = document.createElement('video')
+      const video = document.createElement('video');
+      video.setAttribute('id','test');
       call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream);
     })
@@ -44,8 +47,7 @@ navigator.mediaDevices.getUserMedia( {
 
   socket.on('user-disconnected', userId => {
     if (peers[userId]){ 
-      peers[userId].close()
-      
+      peers[userId].close();      
     }
   })
 
@@ -61,48 +63,6 @@ startVideo.addEventListener('click',function(){
     startVideo.classList.remove('stop');
   }
 })
-
-// startVideo.addEventListener('click',function(e){
-//   console.log('On Camera');
-//   navigator.mediaDevices.getUserMedia( {
-//     video:true,
-//     audio: true
-//   }).then(stream => {
-//     addOwnVideoStream(myOwnVideo,stream);
-//       myPeer.on('call', call => {
-//         call.answer(stream);
-//         const video = document.createElement('video')
-//         call.on('stream', userVideoStream => {
-//         addVideoStream(video, userVideoStream);
-//       })
-//     })
-  
-//     socket.on('user-connected', userId => {
-//       connectToNewUser(userId, stream)
-//     })
-//   })
-// })
-
-// stopVideo.addEventListener('click',function(e){
-//   console.log('Off Camera');
-//   navigator.mediaDevices.getUserMedia( {
-//     video:false,
-//     audio: true
-//   }).then(stream => {
-//     addOwnVideoStream(myOwnVideo,stream);
-//       myPeer.on('call', call => {
-//         call.answer(stream);
-//         const video = document.createElement('video')
-//         call.on('stream', userVideoStream => {
-//         addVideoStream(video, userVideoStream);
-//       })
-//     })
-  
-//     socket.on('user-connected', userId => {
-//       connectToNewUser(userId, stream)
-//     })
-//   })
-// })
 
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
@@ -125,7 +85,7 @@ function addVideoStream(video, stream) {
 function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('click', () => {
-    video.remove()
+    video.play()
   })
   ownvideoGrid.append(video)
 }
