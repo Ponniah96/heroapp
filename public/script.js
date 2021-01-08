@@ -65,7 +65,6 @@ startVideo.addEventListener('click',function(){
 })
 
 function connectToNewUser(userId, stream) {
-  otherVideo.className=userId;
   otherVideo.classList.remove('d-none');
   const call = myPeer.call(userId, stream);
   call.on('stream', userVideoStream => {
