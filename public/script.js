@@ -98,7 +98,8 @@ startVideo.addEventListener('click',function(){
 
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
-  const video = document.createElement('video')
+  const video = document.createElement('video');
+  video.className='test';
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
