@@ -185,17 +185,17 @@ function stopCapture(evt) {
   videoElem.srcObject = null;
 }
 
-function addScreenShareStream(video, stream) {
-  video.srcObject = stream;
-  video.addEventListener('loadedmetadata', () => {
-    video.play()
+function addScreenShareStream( stream) {
+  videoElem.srcObject = stream;
+  videoElem.addEventListener('loadedmetadata', () => {
+    videoElem.play()
   })
 }
 
 function connectToNewShareUser(userId, stream) {
   const call = myPeer.call(userId, stream)
-  call.on('#video','stream', userVideoStream => {
-    addScreenShareStream(videoElem, userVideoStream);
+  call.on('stream', userVideoStream => {
+    addScreenShareStream(userVideoStream);
   })
   call.on('close', () => {
     video.remove()
