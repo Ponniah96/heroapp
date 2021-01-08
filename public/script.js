@@ -45,7 +45,7 @@ navigator.mediaDevices.getUserMedia( {
   socket.on('user-disconnected', userId => {
     if (peers[userId]){ 
       peers[userId].close()
-      //connectToNewUser(userId, stream)
+      
     }
   })
 
@@ -107,13 +107,10 @@ startVideo.addEventListener('click',function(){
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video');
+  video.setAttribute('id',userId);
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
-  call.on('close', () => {
-    video.stop()
-  })
-
   peers[userId] = call
 }
 
@@ -127,7 +124,7 @@ function addVideoStream(video, stream) {
 
 function addOwnVideoStream(video, stream) {
   video.srcObject = stream
-  video.addEventListener('loadedmetadata', () => {
+  video.addEventListener('click', () => {
     video.play()
   })
   ownvideoGrid.append(video)
@@ -137,7 +134,6 @@ function stopOwnVideoStream(video, stream) {
   let tracks = video.srcObject.getTracks();
   tracks.forEach(track => track.stop());
   video.srcObject = null;
-  ownvideoGrid.append(video)
 }
 
 
@@ -180,9 +176,9 @@ async function startCapture() {
 }
 
 function stopCapture(evt) {
-  let tracks = videoElem.srcObject.getTracks();
-  tracks.forEach(track => track.stop());
-  videoElem.srcObject = null;
+  // let tracks = videoElem.srcObject.getTracks();
+  // tracks.forEach(track => track.stop());
+  // videoElem.srcObject = null;
 }
 
 function addScreenShareStream( stream) {
@@ -197,10 +193,6 @@ function connectToNewShareUser(userId, stream) {
   call.on('stream', userVideoStream => {
     addScreenShareStream(userVideoStream);
   })
-  call.on('close', () => {
-    video.remove()
-  })
-
   peers[userId] = call
 }
 
