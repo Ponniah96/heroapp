@@ -125,7 +125,7 @@ function addVideoStream(video, stream) {
 function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('click', () => {
-    video.play()
+    video.stop()
   })
   ownvideoGrid.append(video)
 }
