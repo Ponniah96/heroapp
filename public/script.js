@@ -46,8 +46,16 @@ navigator.mediaDevices.getUserMedia( {
   })
 
   socket.on('user-disconnected', userId => {
+    console.log(peers[userId]);
     if (peers[userId]){ 
-      peers[userId].close();      
+      peers[userId].close();
+      const otherVideos=document.getElementById('others');
+      otherVideos.forEach(element => {
+        console.log(element);
+        if(element.classList.contains(userId)){
+          element.className="test";
+        }
+      });      
     }
   })
 
