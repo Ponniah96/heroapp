@@ -170,20 +170,9 @@ startElem.addEventListener("click", function (evt) {
 async function startCapture() {
   try {
     navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      // myPeer.on('call', call => {
-      //   call.answer(stream);
-      //   call.on('#video','stream', userVideoStream => {
-      //     addScreenShareStream(videoElem, userVideoStream);
-      //   })
-      // })
       socket.on('user-connected', userId => {
         connectToNewShareUser(userId, stream)
       })
-      // socket.on('user-disconnected', userId => {
-      //   if (peers[userId]){ 
-      //     peers[userId].close()
-      //   }
-      // })
     });
   } catch (err) {
     console.error("Error: " + err);
@@ -194,7 +183,6 @@ function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
   tracks.forEach(track => track.stop());
   videoElem.srcObject = null;
-  //videoElem.classList.remove('screen-share');
 }
 
 function addScreenShareStream(video, stream) {
@@ -207,7 +195,7 @@ function addScreenShareStream(video, stream) {
 
 function connectToNewShareUser(userId, stream) {
   const call = myPeer.call(userId, stream)
-  call.on('stream', userVideoStream => {
+  call.on('#video','stream', userVideoStream => {
     addScreenShareStream(videoElem, userVideoStream);
   })
   call.on('close', () => {
