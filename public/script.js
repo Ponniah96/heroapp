@@ -21,8 +21,6 @@ const myOwnVideo = document.getElementById('own');
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-const otherVideo=document.getElementById('others');
-otherVideo.controls=true;
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
@@ -34,7 +32,9 @@ navigator.mediaDevices.getUserMedia( {
 }).then(stream => {
   addOwnVideoStream(myOwnVideo,stream);
   myPeer.on('call', call => {
-    //otherVideo.classList.remove('d-none');
+    const otherVideo=document.createElement('video');
+    otherVideo.setAttribute('id','others');
+    otherVideo.controls=true;
     call.answer(stream);
     call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream);
@@ -65,7 +65,10 @@ startVideo.addEventListener('click',function(){
 })
 
 function connectToNewUser(userId, stream) {
-  //otherVideo.classList.remove('d-none');
+  const otherVideo=document.createElement('video');
+  otherVideo.setAttribute('id','others');
+  otherVideo.controls=true;
+  otherVideo.className=userId;
   const call = myPeer.call(userId, stream);
   call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream)
