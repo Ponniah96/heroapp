@@ -7,13 +7,14 @@ myPeer.on('open', id => {
 })  
 
 socket.on('user-connected',userId=>{
-  console.log('User Connectedd: '+userId);
+  console.log('User Connected: '+userId);
+  
 })
-
 
 socket.on('user-disconnected',userId=>{
   console.log('User disconnected: '+userId);
 })
+
 
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
