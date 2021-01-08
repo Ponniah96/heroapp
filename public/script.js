@@ -18,7 +18,6 @@ const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
 const startVideo=document.getElementById('camera-on');
-const stopVideo=document.getElementById('camera-off');
 
 navigator.mediaDevices.getUserMedia( {
   audio: true
@@ -43,47 +42,58 @@ navigator.mediaDevices.getUserMedia( {
 
 })
 
-startVideo.addEventListener('click',function(e){
-  console.log('On Camera');
-  navigator.mediaDevices.getUserMedia( {
-    video:true,
-    audio: true
-  }).then(stream => {
-    addOwnVideoStream(myOwnVideo,stream);
-      myPeer.on('call', call => {
-        call.answer(stream);
-        const video = document.createElement('video')
-        call.on('stream', userVideoStream => {
-        addVideoStream(video, userVideoStream);
-      })
-    })
-  
-    socket.on('user-connected', userId => {
-      connectToNewUser(userId, stream)
-    })
-  })
+startVideo.addEventListener('click',function(){
+  if(startVideo.textContent=="Camera on"){
+    startVideo.textContent="Camera off";
+    startVideo.classList.add('stop');
+  }
+  else{
+    startVideo.textContent="Camera on";
+    startVideo.classList.remove('stop');
+  }
 })
 
-stopVideo.addEventListener('click',function(e){
-  console.log('Off Camera');
-  navigator.mediaDevices.getUserMedia( {
-    video:false,
-    audio: true
-  }).then(stream => {
-    addOwnVideoStream(myOwnVideo,stream);
-      myPeer.on('call', call => {
-        call.answer(stream);
-        const video = document.createElement('video')
-        call.on('stream', userVideoStream => {
-        addVideoStream(video, userVideoStream);
-      })
-    })
+// startVideo.addEventListener('click',function(e){
+//   console.log('On Camera');
+//   navigator.mediaDevices.getUserMedia( {
+//     video:true,
+//     audio: true
+//   }).then(stream => {
+//     addOwnVideoStream(myOwnVideo,stream);
+//       myPeer.on('call', call => {
+//         call.answer(stream);
+//         const video = document.createElement('video')
+//         call.on('stream', userVideoStream => {
+//         addVideoStream(video, userVideoStream);
+//       })
+//     })
   
-    socket.on('user-connected', userId => {
-      connectToNewUser(userId, stream)
-    })
-  })
-})
+//     socket.on('user-connected', userId => {
+//       connectToNewUser(userId, stream)
+//     })
+//   })
+// })
+
+// stopVideo.addEventListener('click',function(e){
+//   console.log('Off Camera');
+//   navigator.mediaDevices.getUserMedia( {
+//     video:false,
+//     audio: true
+//   }).then(stream => {
+//     addOwnVideoStream(myOwnVideo,stream);
+//       myPeer.on('call', call => {
+//         call.answer(stream);
+//         const video = document.createElement('video')
+//         call.on('stream', userVideoStream => {
+//         addVideoStream(video, userVideoStream);
+//       })
+//     })
+  
+//     socket.on('user-connected', userId => {
+//       connectToNewUser(userId, stream)
+//     })
+//   })
+// })
 
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
@@ -122,12 +132,10 @@ function stopOwnVideoStream(video, stream) {
 }
 
 
-
+/**Screen Share Code Starts */
 const videoElem = document.getElementById("video");
 const startElem = document.getElementById("start");
 const stopElem = document.getElementById("stop");
-
-// Options for getDisplayMedia()
 
 var displayMediaOptions = {
   video: {
@@ -136,21 +144,24 @@ var displayMediaOptions = {
   audio: false
 };
 
-// Set event listeners for the start and stop buttons
 startElem.addEventListener("click", function (evt) {
-  startCapture();
-}, false);
-
-stopElem.addEventListener("click", function (evt) {
-  stopCapture();
+  if(startElem.textContent=="Start Sharing"){
+    startCapture();
+    startElem.textContent="Stop Sharing";
+    startElem.classList.add('stop');
+  }
+  else{
+    stopCapture();
+    startElem.textContent="Start Sharing";
+    startElem.classList.remove('stop');
+  }
+  
 }, false);
 
 async function startCapture() {
   try {
      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
     //addScreenShareStream(videoElem, stream);
-      
-    videoElem.classList.add('screen-share');
       myPeer.on('call', call => {
         call.answer(stream);
         call.on('stream', userVideoStream => {
@@ -170,11 +181,12 @@ function stopCapture(evt) {
   let tracks = videoElem.srcObject.getTracks();
   tracks.forEach(track => track.stop());
   videoElem.srcObject = null;
-  videoElem.classList.remove('screen-share');
+  //videoElem.classList.remove('screen-share');
 }
 
 function addScreenShareStream(video, stream) {
-  video.srcObject = stream
+  video.srcObject = stream;
+  video.className="test";
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
@@ -191,3 +203,5 @@ function connectToNewShareUser(userId, stream) {
 
   peers[userId] = call
 }
+
+/**Screen Share Code Ends */

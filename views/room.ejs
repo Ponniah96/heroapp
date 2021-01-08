@@ -90,7 +90,7 @@
       width: 90%;
       height: 500px;
       border: 1px solid;
-      display: none;
+      display: block;
       margin: 0px auto;
     }
 
@@ -112,12 +112,12 @@
       border-radius: 4px;
     }
 
-    #stop {
-      background: red;
-      color: white;
-      border: 1px solid red;
-      padding: 10px 20px;
-      border-radius: 4px;
+    .stop {
+      background: red !important;
+      color: white !important;
+      border: 1px solid red !important;
+      padding: 10px 20px !important;
+      border-radius: 4px !important;
     }
 
     #video-controls {
@@ -131,14 +131,6 @@
       padding: 10px 20px;
       border-radius: 4px;
     }
-
-    #camera-off {
-      background: red;
-      color: white;
-      border: 1px solid red;
-      padding: 10px 20px;
-      border-radius: 4px;
-    }
   </style>
 </head>
 
@@ -146,8 +138,7 @@
   <div id='header'>Welcome to Live streaming using Node js</div>
   <div id="screen-share">
     <p>Click the Start Capture button to begin.</p>
-    <p><button id="start">Start Sharing</button>&nbsp;<button id="stop">Stop Sharing</button></p>
-    <p><button id="camera-on">Camera on</button>&nbsp;<button id="camera-off">Camera off</button></p>
+    <p><button id="start">Start Sharing</button>&nbsp;<button id="camera-on">Camera on</button></p>
     <video id="video" autoplay></video>
   </div>
   <!-- <video id="my-video" class="video-js vjs-theme-city" controls preload="auto"
