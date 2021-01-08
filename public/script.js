@@ -14,14 +14,15 @@ socket.on('user-disconnected',userId=>{
   console.log('User disconnected: '+userId);
 })
 
-
+const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
-const myOwnVideo = document.createElement('video');
+const myOwnVideo = document.getElementById('own');
 myOwnVideo.controls= true;
-const peers = {};
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
+const otherVideo=document.getElementById('others');
+otherVideo.controls=true;
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
@@ -32,14 +33,12 @@ navigator.mediaDevices.getUserMedia( {
   }
 }).then(stream => {
   addOwnVideoStream(myOwnVideo,stream);
-    myPeer.on('call', call => {
-      call.answer(stream);
-      const video = document.createElement('video');
-      video.setAttribute('id','test');
-      call.on('stream', userVideoStream => {
-      addVideoStream(video, userVideoStream);
-    })
+  myPeer.on('call', call => {
+    call.answer(stream);
+    call.on('stream', userVideoStream => {
+    addVideoStream(otherVideo, userVideoStream);
   })
+})
 
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
@@ -65,11 +64,9 @@ startVideo.addEventListener('click',function(){
 })
 
 function connectToNewUser(userId, stream) {
-  const call = myPeer.call(userId, stream)
-  const video = document.createElement('video');
-  video.setAttribute('id',userId);
+  const call = myPeer.call(userId, stream);
   call.on('stream', userVideoStream => {
-    addVideoStream(video, userVideoStream)
+    addVideoStream(otherVideo, userVideoStream)
   })
   peers[userId] = call
 }
@@ -79,22 +76,20 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  videoGrid.append(video)
 }
 
 function addOwnVideoStream(video, stream) {
   video.srcObject = stream
-  video.addEventListener('click', () => {
+  video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  ownvideoGrid.append(video)
 }
 
-function stopOwnVideoStream(video, stream) {
-  let tracks = video.srcObject.getTracks();
-  tracks.forEach(track => track.stop());
-  video.srcObject = null;
-}
+// function stopOwnVideoStream(video, stream) {
+//   let tracks = video.srcObject.getTracks();
+//   tracks.forEach(track => track.stop());
+//   video.srcObject = null;
+// }
 
 
 /**Screen Share Code Starts */
