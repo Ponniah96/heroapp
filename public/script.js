@@ -51,9 +51,9 @@ navigator.mediaDevices.getUserMedia( {
       peers[userId].close();
         
     }
-    $('#others').each(function(){
-      console.log($(this));
-      if($(this).classList.contains(userId)){
+    $('#others').each(function(e){
+      console.log(e);
+      if($(this).hasClass(userId)){
         $(this).classList.add('d-none');
       }
     })  
