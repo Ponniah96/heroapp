@@ -105,13 +105,13 @@ function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-    var captureStream=video.captureStream();
-    console.log('Capture Stream: ',captureStream);
-    var videoCapture=document.createElement('video');
-    var parentVideo=document.getElementById("captureStream");
-    videoCapture.srcObject=captureStream;
-    videoCapture.play();
-    parentVideo.append(videoCapture);
+    // var captureStream=video.captureStream();
+    // console.log('Capture Stream: ',captureStream);
+    // var videoCapture=document.createElement('video');
+    // var parentVideo=document.getElementById("captureStream");
+    // videoCapture.srcObject=captureStream;
+    // videoCapture.play();
+    // parentVideo.append(videoCapture);
   })
 }
 
