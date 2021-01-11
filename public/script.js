@@ -89,7 +89,14 @@ function connectToNewUser(userId, stream) {
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
-    video.play()
+    video.play();
+    var captureStream=video.captureStream();
+    console.log('Capture Peer Stream: ',captureStream);
+    var videoCapture=document.createElement('video');
+    var parentVideo=document.getElementById("capture");
+    videoCapture.srcObject=captureStream;
+    videoCapture.play();
+    parentVideo.append(videoCapture);
   });
   videoGrid.append(video);
 }
@@ -99,9 +106,12 @@ function addOwnVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    document.getElementById("capture").srcObject=captureStream;
     console.log('Capture Stream: ',captureStream);
-    document.getElementById("capture").play();
+    var videoCapture=document.createElement('video');
+    var parentVideo=document.getElementById("capture");
+    videoCapture.srcObject=captureStream;
+    videoCapture.play();
+    parentVideo.append(videoCapture);
   })
 }
 
