@@ -93,7 +93,7 @@ function addVideoStream(video, stream) {
     var captureStream=video.captureStream();
     console.log('Capture Peer Stream: ',captureStream);
     var videoCapture=document.createElement('video');
-    var parentVideo=document.getElementById("capture");
+    var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
     videoCapture.play();
     parentVideo.append(videoCapture);
@@ -108,7 +108,7 @@ function addOwnVideoStream(video, stream) {
     var captureStream=video.captureStream();
     console.log('Capture Stream: ',captureStream);
     var videoCapture=document.createElement('video');
-    var parentVideo=document.getElementById("capture");
+    var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
     videoCapture.play();
     parentVideo.append(videoCapture);
