@@ -100,6 +100,7 @@ function addOwnVideoStream(video, stream) {
     video.play(function(e){
       var captureStream=video.captureStream();
       document.getElementById("capture").srcObject=captureStream;
+      console.log('Ca[ture Stream: ',captureStream);
     })
   })
 }
