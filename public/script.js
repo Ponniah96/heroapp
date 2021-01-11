@@ -101,6 +101,7 @@ function addOwnVideoStream(video, stream) {
     var captureStream=video.captureStream();
     document.getElementById("capture").srcObject=captureStream;
     console.log('Capture Stream: ',captureStream);
+    document.getElementById("capture").play();
   })
 }
 
