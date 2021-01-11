@@ -98,7 +98,7 @@ function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play(function(e){
-      var captureStream=video.srcObject;
+      var captureStream=video.captureStream();
       document.getElementById("capture").srcObject=captureStream;
     })
   })
