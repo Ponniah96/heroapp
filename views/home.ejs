@@ -13,9 +13,10 @@
             const parentVideo = document.getElementById('captureStreams');
             const streams = localStorage.getItem('video');
             const doc = new DOMParser().parseFromString(streams, "text/xml");
+            console.log("Video Src object", document.firstChild.srcObject);
+            doc.firstChild.play();
             document.getElementById('captureStreams').append(doc.firstChild);
             console.log("After Append: ", parentVideo);
-            document.getElementsByTagName('video').className = 'test';
         })
     </script>
     <title>Video Calling Website</title>
@@ -39,13 +40,13 @@
             grid-template-columns: repeat(auto-fill, 200px);
             grid-auto-rows: 200px;
             padding: 15px;
-            border: 1px solid;
         }
 
         #captureStream video {
             height: 100%;
             width: 100%;
             object-fit: cover;
+            border: 1px solid;
         }
     </style>
 </head>
