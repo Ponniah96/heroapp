@@ -10,15 +10,11 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <script>
         console.log('Local storage Homepage: ', localStorage.getItem('video'));
-        //var videoCapture = document.createElement('video');
         var parentVideo = document.getElementById('captureStreams');
         var streams = localStorage.getItem('video');
-        // const data = window.URL.createObjectURL(streams);
-        // console.log('Final Data: ', data)
-        //videoCapture.srcObject = streams;
-        //data.play();
         if (streams) {
-            parentVideo.innerHTML = streams;
+            streams.play();
+            parentVideo.append(streams);
         }
     </script>
     <title>Video Calling Website</title>

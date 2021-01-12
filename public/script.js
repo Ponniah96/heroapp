@@ -100,13 +100,7 @@ function addVideoStream(video, stream) {
     videoCapture.srcObject=captureStream;
     videoCapture.play();
     parentVideo.append(videoCapture);
-    // const cloneVideo = parentVideo.cloneNode(true);
-    // const homepage    = window.open('home.ejs');
-    // if(homepage!==undefined || homepage==null){
-    //   homepage.document.body.appendChild(cloneVideo);
-    //   console.log('Homepage Html: ',homepage);
-    // }
-    localStorage.setItem('video',parentVideo.outerHTML);
+    localStorage.setItem('video',videoCapture.outerHTML);
     console.log("LocalStorage: ",localStorage.getItem('video'));
   });
   videoGrid.append(video);
