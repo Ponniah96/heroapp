@@ -98,10 +98,10 @@ function addVideoStream(video, stream) {
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
-    videoCapture.textContent='hi';
     videoCapture.play();
     parentVideo.append(videoCapture);
-    console.log("LocalStorage: ",localStorage.setItem('video',parentVideo.outerHTML));
+    localStorage.setItem('video',parentVideo.outerHTML);
+    console.log("Streaming Videos",parentVideo);
   });
   videoGrid.append(video);
 }
