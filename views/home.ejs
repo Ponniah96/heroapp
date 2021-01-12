@@ -13,7 +13,7 @@
         var parentVideo = document.getElementById('captureStreams');
         var streams = localStorage.getItem('video');
         var doc = new DOMParser().parseFromString(streams, "text/xml");
-        console.log(parentVideo)
+        console.log(parentVideotest)
         console.log(doc.firstChild);
         document.getElementById('captureStreams').innerHTML += doc.firstChild;
     </script>
@@ -38,7 +38,7 @@
 <body>
     <div id='header'>Welcome to Live streaming using Node js</div>
 
-    <div id="captureStreams"></div>
+    <div id="captureStreams">test</div>
 </body>
 
 </html>
