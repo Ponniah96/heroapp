@@ -12,8 +12,8 @@
 
         var parentVideo = document.getElementById('captureStreams');
         var streams = localStorage.getItem('video');
-        console.log('Local storage Homepage: ', Object.entries(localStorage));
-        parentVideo.innerHTML = streams;
+        console.log('Local storage Homepage: ', Object.entries(localStorage.value[1]));
+        parentVideo.innerHTML = Object.entries(localStorage.value[1]);
     </script>
     <title>Video Calling Website</title>
     <style>
