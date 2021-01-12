@@ -10,12 +10,13 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <script>
 
-        var parentVideo = document.getElementById('captureStreams');
-        var streams = localStorage.getItem('video');
-        var doc = new DOMParser().parseFromString(streams, "text/xml");
-        console.log(parentVideotest)
+        const parentVideo = document.getElementById('captureStreams');
+        const streams = localStorage.getItem('video');
+        const doc = new DOMParser().parseFromString(streams, "text/xml");
+        console.log("Before Append", parentVideo);
         console.log(doc.firstChild);
         document.getElementById('captureStreams').innerHTML += doc.firstChild;
+        console.log("After Append: ", parentVideo)
     </script>
     <title>Video Calling Website</title>
     <style>
