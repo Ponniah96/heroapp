@@ -2,6 +2,11 @@ const socket = io('/');
 
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 
+const peers = {};
+const videoGrid = document.getElementById('video-grid');
+const ownvideoGrid = document.getElementById('own-video-grid');
+const myOwnVideo = document.getElementById('own');
+if(myOwnVideo !=undefined || myOwnVideo!=null){
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -14,13 +19,11 @@ socket.on('user-disconnected',userId=>{
   console.log('User disconnected: '+userId);
 })
 
-const peers = {};
-const videoGrid = document.getElementById('video-grid');
-const ownvideoGrid = document.getElementById('own-video-grid');
-const myOwnVideo = document.getElementById('own');
+
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
+}
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
@@ -63,16 +66,16 @@ navigator.mediaDevices.getUserMedia( {
 
 })
 
-startVideo.addEventListener('click',function(){
-  if(startVideo.textContent=="Camera on"){
-    startVideo.textContent="Camera off";
-    startVideo.classList.add('stop');
-  }
-  else{
-    startVideo.textContent="Camera on";
-    startVideo.classList.remove('stop');
-  }
-})
+// startVideo.addEventListener('click',function(){
+//   if(startVideo.textContent=="Camera on"){
+//     startVideo.textContent="Camera off";
+//     startVideo.classList.add('stop');
+//   }
+//   else{
+//     startVideo.textContent="Camera on";
+//     startVideo.classList.remove('stop');
+//   }
+// })
 
 function connectToNewUser(userId, stream) {
   const otherVideo=document.createElement('video');
@@ -105,80 +108,61 @@ function addOwnVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-    // var captureStream=video.captureStream();
-    // console.log('Capture Stream: ',captureStream);
-    // var videoCapture=document.createElement('video');
-    // var parentVideo=document.getElementById("captureStream");
-    // videoCapture.srcObject=captureStream;
-    // videoCapture.play();
-    // parentVideo.append(videoCapture);
   })
 }
-
-// function stopOwnVideoStream(video, stream) {
-//   let tracks = video.srcObject.getTracks();
-//   tracks.forEach(track => track.stop());
-//   video.srcObject = null;
-// }
 
 
 /**Screen Share Code Starts */
-const videoElem = document.getElementById("video");
-const startElem = document.getElementById("start");
-const stopElem = document.getElementById("stop");
+// const videoElem = document.getElementById("video");
+// const startElem = document.getElementById("start");
+// const stopElem = document.getElementById("stop");
 
-var displayMediaOptions = {
-  video: {
-    cursor: "never"
-  },
-  audio: false
-};
+// var displayMediaOptions = {
+//   video: {
+//     cursor: "never"
+//   },
+//   audio: false
+// };
 
-startElem.addEventListener("click", function (evt) {
-  if(startElem.textContent=="Start Sharing"){
-    startCapture();
-    startElem.textContent="Stop Sharing";
-    startElem.classList.add('stop');
-  }
-  else{
-    stopCapture();
-    startElem.textContent="Start Sharing";
-    startElem.classList.remove('stop');
-  }
+// startElem.addEventListener("click", function (evt) {
+//   if(startElem.textContent=="Start Sharing"){
+//     startCapture();
+//     startElem.textContent="Stop Sharing";
+//     startElem.classList.add('stop');
+//   }
+//   else{
+//     stopCapture();
+//     startElem.textContent="Start Sharing";
+//     startElem.classList.remove('stop');
+//   }
   
-}, false);
+// }, false);
 
-async function startCapture() {
-  try {
-    navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-      socket.on('user-connected', userId => {
-        connectToNewShareUser(userId, stream)
-      })
-    });
-  } catch (err) {
-    console.error("Error: " + err);
-  }
-}
+// async function startCapture() {
+//   try {
+//     navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
+//       socket.on('user-connected', userId => {
+//         connectToNewShareUser(userId, stream)
+//       })
+//     });
+//   } catch (err) {
+//     console.error("Error: " + err);
+//   }
+// }
 
-function stopCapture(evt) {
-  // let tracks = videoElem.srcObject.getTracks();
-  // tracks.forEach(track => track.stop());
-  // videoElem.srcObject = null;
-}
+// function addScreenShareStream( stream) {
+//   videoElem.srcObject = stream;
+//   videoElem.addEventListener('loadedmetadata', () => {
+//     videoElem.play()
+//   })
+// }
 
-function addScreenShareStream( stream) {
-  videoElem.srcObject = stream;
-  videoElem.addEventListener('loadedmetadata', () => {
-    videoElem.play()
-  })
-}
-
-function connectToNewShareUser(userId, stream) {
-  const call = myPeer.call(userId, stream)
-  call.on('stream', userVideoStream => {
-    addScreenShareStream(userVideoStream);
-  })
-  peers[userId] = call
-}
+// function connectToNewShareUser(userId, stream) {
+//   const call = myPeer.call(userId, stream)
+//   call.on('stream', userVideoStream => {
+//     addScreenShareStream(userVideoStream);
+//   })
+//   peers[userId] = call
+// }
 
 /**Screen Share Code Ends */

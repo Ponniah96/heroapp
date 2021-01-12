@@ -13,6 +13,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/home',home);
 
+
+
 app.get('/', (req, res) => {
   res.redirect(`/${uuidV4()}`)
 })
@@ -21,10 +23,11 @@ app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
 })
 
-// app.get('/home',(req, res)=>{
+// const homePage=router.get('/',(req, res)=>{
 //   res.render('home');
 // })
 
+// router.use('/home',homePage);
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
   console.log("socket connected: ",roomId,userId);
