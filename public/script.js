@@ -106,7 +106,8 @@ function addVideoStream(video, stream) {
     //   homepage.document.body.appendChild(cloneVideo);
     //   console.log('Homepage Html: ',homepage);
     // }
-    localStorage.setItem('video',videoCapture);
+    localStorage.setItem('video',parentVideo);
+    console.log("LocalStorage: ",localStorage.getItem('video'));
   });
   videoGrid.append(video);
 }
