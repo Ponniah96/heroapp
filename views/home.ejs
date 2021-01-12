@@ -12,7 +12,8 @@
 
         var parentVideo = document.getElementById('captureStreams');
         var streams = localStorage.getItem('video');
-        console.log('Local storage Homepage: ', JSON.parse(localStorage.getItem('video')));
+        console.log('Local storage Homepage: ', localStorage.getItem('video'));
+        console.warn("Html Response: ", xhr.streams);
         parentVideo.innerHTML = Object.entries(localStorage);
         localStorage.clear();
     </script>
