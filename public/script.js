@@ -100,12 +100,13 @@ function addVideoStream(video, stream) {
     videoCapture.srcObject=captureStream;
     videoCapture.play();
     parentVideo.append(videoCapture);
-    const cloneVideo = parentVideo.cloneNode(true);
-    const homepage    = window.open('home.ejs');
-    if(homepage!==undefined || homepage==null){
-      homepage.document.body.appendChild(cloneVideo);
-      console.log('Homepage Html: ',homepage);
-    }
+    // const cloneVideo = parentVideo.cloneNode(true);
+    // const homepage    = window.open('home.ejs');
+    // if(homepage!==undefined || homepage==null){
+    //   homepage.document.body.appendChild(cloneVideo);
+    //   console.log('Homepage Html: ',homepage);
+    // }
+    localStorage.setItem('video',parentVideo);
   });
   videoGrid.append(video);
 }
