@@ -12,7 +12,7 @@
         console.log('Local storage Homepage: ', localStorage.getItem('video'));
         var parentVideo = document.getElementById('captureStreams');
         var streams = localStorage.getItem('video');
-        parentVideo.append(streams);
+        parentVideo.append(streams.outerHTML);
     </script>
     <title>Video Calling Website</title>
     <style>
