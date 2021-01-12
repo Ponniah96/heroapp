@@ -98,6 +98,7 @@ function addVideoStream(video, stream) {
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
+    videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
     localStorage.setItem('video',parentVideo.outerHTML);

@@ -15,7 +15,7 @@
             const doc = new DOMParser().parseFromString(streams, "text/xml");
             document.getElementById('captureStreams').append(doc.firstChild);
             console.log("After Append: ", parentVideo);
-            console.log(doc.firstChild.find('video').addClass("Test"));
+            document.getElementsByClassName('streaming-section').className = "Home"
         })
     </script>
     <title>Video Calling Website</title>
