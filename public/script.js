@@ -101,8 +101,9 @@ function addVideoStream(video, stream) {
     videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
+    localStorage.setItem('passdata',captureStream.clone())
     localStorage.setItem('video',parentVideo.outerHTML);
-    console.log("Streaming Videos srcobject",videoCapture);
+    console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
   });
   videoGrid.append(video);
 }
