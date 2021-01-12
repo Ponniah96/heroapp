@@ -13,10 +13,8 @@
             const parentVideo = document.getElementById('captureStreams');
             const streams = localStorage.getItem('video');
             const doc = new DOMParser().parseFromString(streams, "text/xml");
-            console.log("Before Append", parentVideo);
             console.log(doc.firstChild);
-            document.getElementById('captureStreams').innerHTML += "doc.firstChild";
-            //document.getElementById('captureStreams').innerHTML += "<h6>Sample Text</h6>"
+            document.getElementById('captureStreams').append(doc.firstChild);
             console.log("After Append: ", parentVideo);
         })
     </script>
