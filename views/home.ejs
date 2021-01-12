@@ -14,7 +14,7 @@
         var streams = localStorage.getItem('video');
         var doc = new DOMParser().parseFromString(streams, "text/xml");
         console.log(doc.firstChild);
-        parentVideo.append(doc.firstChild);
+        parentVideo.innerHTML += doc.firstChild;
     </script>
     <title>Video Calling Website</title>
     <style>
