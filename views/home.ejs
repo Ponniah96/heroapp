@@ -10,6 +10,7 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <script>
         console.log('Local storage: ', localStorage.getItem('video'));
+        document.getElementById('captureStreams').append(localStorage.getItem('video'));
     </script>
     <title>Video Calling Website</title>
     <style>
@@ -32,7 +33,7 @@
 <body>
     <div id='header'>Welcome to Live streaming using Node js</div>
 
-
+    <div id="captureStreams"></div>
 </body>
 
 </html>
