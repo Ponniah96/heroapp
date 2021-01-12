@@ -15,7 +15,8 @@
             const doc = new DOMParser().parseFromString(streams, "text/xml");
             console.log("Before Append", parentVideo);
             console.log(doc.firstChild);
-            document.getElementById('captureStreams').innerHTML += "<h6>Sample Text</h6>"
+            parentVideo.innerHTML += doc.firstChild;
+            //document.getElementById('captureStreams').innerHTML += "<h6>Sample Text</h6>"
             console.log("After Append: ", parentVideo);
         })
     </script>
