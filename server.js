@@ -28,6 +28,8 @@ app.get('/:room', (req, res) => {
 // })
 
 // router.use('/home',homePage);
+
+
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
   console.log("socket connected: ",roomId,userId);
