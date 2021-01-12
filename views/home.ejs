@@ -12,11 +12,12 @@
         console.log('Local storage: ', localStorage.getItem('video'));
         var videoCapture = document.createElement('video');
         var parentVideo = document.getElementById('captureStreams');
-        var streams = localStorage.getItem('video');
+        //var streams = localStorage.getItem('video');
+        const data = URL.createObjectURL(localStorage.getItem('video'));
+        console.log('Final Data: ', data)
         videoCapture.srcObject = streams;
         videoCapture.play();
         parentVideo.append(videoCapture);
-        document.getElementById('captureStreams').append(localStorage.getItem('video'));
     </script>
     <title>Video Calling Website</title>
     <style>
