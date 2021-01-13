@@ -125,10 +125,13 @@ function addVideoStream(video, stream) {
         type: "video/webm"
       });
       console.log('BlobStorage: ',blob);
-      var blobStore=blob.toString();
-      console.log('BlobStorage: ',blobStore);
-      localStorage.setItem('Recoreded Video',JSON.stringify(blob));
-      console.log('Recoded data in local storage: ',JSON.parse(localStorage.getItem('Recoreded Video')))
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        localStorage.setItem("file", event.target.result);
+      }
+      reader.readAsDataURL(blob);
+      const finalResult=dataURItoBlob(localStorage.getItem("file"));
+      console.log('Final Result Localstorage: ',finalResult)
     }
     // function download() {
     //   var blob = new Blob(recordedChunks, {
