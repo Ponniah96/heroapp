@@ -125,9 +125,8 @@ function addVideoStream(video, stream) {
         type: "video/webm"
       });
       console.log('BlobStorage: ',blob);
-      var url = URL.createObjectURL(blob);
-      var windowURL=window.URL.revokeObjectURL(url);
-      console.log('Url: ',windowURL);
+      var blobStore=blob.toString();
+      console.log('BlobStorage: ',blobStore);
       localStorage.setItem('Recoreded Video',JSON.stringify(blob));
       console.log('Recoded data in local storage: ',JSON.parse(localStorage.getItem('Recoreded Video')))
     }
