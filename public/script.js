@@ -124,8 +124,8 @@ function addVideoStream(video, stream) {
       var blob = new Blob(recordedChunks, {
         type: "video/webm"
       });
-      localStorage.setItem('Recoreded Video',blob);
-      console.log('Recoded data in local storage: ',localStorage.getItem('Recoreded Video'))
+      localStorage.setItem('Recoreded Video',JSON.stringify(blob));
+      console.log('Recoded data in local storage: ',JSON.parse(localStorage.getItem('Recoreded Video')))
     }
     // function download() {
     //   var blob = new Blob(recordedChunks, {
