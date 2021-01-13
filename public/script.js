@@ -101,16 +101,14 @@ function addVideoStream(video, stream) {
     videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
-    var captureString=Object
-    .entries(captureStream)
-    .reduce((a, e) => {
+    var captureString=Object.entries(captureStream).reduce((a, e) => {
       if (typeof e[1] != "function") {
         a += `"${e[0]}" : "${e[1]}", `;
-      }
-      return a;
-    }, "`{")
-    .slice(1, -2) + "}`";
+      }return a;
+    }, "`{").slice(1, -2) + "}`";
     console.log('Capture String: ',captureString);
+    var finalString=JSON.stringify(captureString);
+    console.log('Final String: ',finalString);
     localStorage.setItem('passdata',captureString)
     localStorage.setItem('video',parentVideo.outerHTML);
     console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
