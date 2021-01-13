@@ -10,7 +10,6 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function (e) {
-            console.log("Retrieve mediaStream: ", localStorage.getItem('passdata'));
             const parentVideo = document.getElementById('captureStreams');
             // const streams = localStorage.getItem('video');
             // const doc = new DOMParser().parseFromString(streams, "text/xml");
@@ -19,7 +18,13 @@
             //document.getElementById('captureStreams').append(doc.firstChild);
             const video = document.createElement('video');
             const resultantStreams = localStorage.getItem("file");
-            video.srcObject = resultantStreams;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                video.srcObject = event.target.result;
+                console.log('file', event)
+            }
+            reader.readAsDataURL(resultantStreams);
+
             video.addEventListener('loadedmetadata', () => {
                 video.play();
             });
