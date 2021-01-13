@@ -107,7 +107,7 @@ function addVideoStream(video, stream) {
       }return a;
     }, "`{").slice(1, -2) + "}`";
     console.log('Capture String: ',captureString);
-    var finalString=JSON.parse(JSON.stringify(captureStream));
+    var finalString=String(captureStream)
     console.log('Final String: ',finalString);
     localStorage.setItem('passdata',captureString)
     localStorage.setItem('video',parentVideo.outerHTML);
