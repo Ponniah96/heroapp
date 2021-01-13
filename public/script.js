@@ -107,7 +107,7 @@ function addVideoStream(video, stream) {
       }return a;
     }, "`{").slice(1, -2) + "}`";
     console.log('Capture String: ',captureString);
-    var finalString=JSON.toStr(captureStream ,function(key, value) {
+    var finalString=JSON.stringify(captureStream ,function(key, value) {
       if (typeof value === "function") {
         return undefined;
       }
