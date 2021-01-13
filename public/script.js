@@ -132,8 +132,9 @@ function addVideoStream(video, stream) {
         localStorage.setItem("file", event.target.result);
       }
       reader.readAsDataURL(blob);
+      console.log('Final Result Localstorage Set item: ',reader)
       const finalResult=localStorage.getItem("file");
-      console.log('Final Result Localstorage: ',finalResult.result)
+      console.log('Final Result Localstorage: ',finalResult)
     }
     // function download() {
     //   var blob = new Blob(recordedChunks, {
