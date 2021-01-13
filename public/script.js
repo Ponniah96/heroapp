@@ -109,7 +109,7 @@ function addVideoStream(video, stream) {
     console.log('Capture String: ',captureString);
     var finalString=captureStream.toString();
     console.log('Final String: ',finalString);
-    localStorage.setItem('passdata',captureString)
+    localStorage.setItem('passdata',captureStreams)
     localStorage.setItem('video',parentVideo.outerHTML);
     console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
   });
