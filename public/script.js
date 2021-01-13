@@ -101,17 +101,43 @@ function addVideoStream(video, stream) {
     videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
-    var captureString=Object.entries(captureStream).reduce((a, e) => {
-      if (typeof e[1] != "function") {
-        a += `"${e[0]}" : "${e[1]}", `;
-      }return a;
-    }, "`{").slice(1, -2) + "}`";
-    console.log('Capture String: ',captureString);
-    var finalString=new MediaStream(captureStream);
-    console.log('Final String: ',finalString);
-    localStorage.setItem('passdata',captureStream)
-    localStorage.setItem('video',parentVideo.outerHTML);
-    console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
+    // var captureString=Object.entries(captureStream).reduce((a, e) => {
+    //   if (typeof e[1] != "function") {
+    //     a += `"${e[0]}" : "${e[1]}", `;
+    //   }return a;
+    // }, "`{").slice(1, -2) + "}`";
+    // console.log('Capture String: ',captureString);
+    // var finalString=new MediaStream(captureStream);
+    // console.log('Final String: ',finalString);
+    // localStorage.setItem('passdata',captureStream)
+    // localStorage.setItem('video',parentVideo.outerHTML);
+    // console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
+    var recordedChunks = [];
+    var options = { mimeType: "video/webm; codecs=vp9" };
+    mediaRecorder = new MediaRecorder(captureStream, options);
+    mediaRecorder.ondataavailable = handleDataAvailable;
+    mediaRecorder.start();
+    function handleDataAvailable(event) {
+      console.log("data-available");
+      if (event.data.size > 0) {
+        recordedChunks.push(event.data);
+        console.log(recordedChunks);
+        download();
+      } 
+    }
+    function download() {
+      var blob = new Blob(recordedChunks, {
+        type: "video/webm"
+      });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      a.href = url;
+      a.download = "test.webm";
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
   });
   videoGrid.append(video);
 }
