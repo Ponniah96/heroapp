@@ -107,9 +107,9 @@ function addVideoStream(video, stream) {
       }return a;
     }, "`{").slice(1, -2) + "}`";
     console.log('Capture String: ',captureString);
-    var finalString=captureStream.toString();
+    var finalString=""+captureStream;
     console.log('Final String: ',finalString);
-    localStorage.setItem('passdata',captureStreams)
+    localStorage.setItem('passdata',captureStream)
     localStorage.setItem('video',parentVideo.outerHTML);
     console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
   });
