@@ -101,9 +101,19 @@ function addVideoStream(video, stream) {
     videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
-    localStorage.setItem('passdata',video.captureStream())
+    var captureString=Object
+    .entries(captureStream)
+    .reduce((a, e) => {
+      if (typeof e[1] != "function") {
+        a += `"${e[0]}" : "${e[1]}", `;
+      }
+      return a;
+    }, "`{")
+    .slice(1, -2) + "}`";
+    console.log('Capture String: ',captureString);
+    localStorage.setItem('passdata',captureString)
     localStorage.setItem('video',parentVideo.outerHTML);
-    console.log("Streaming Videos srcobject",JSON.parse(localStorage.getItem('passdata')));
+    console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
   });
   videoGrid.append(video);
 }
