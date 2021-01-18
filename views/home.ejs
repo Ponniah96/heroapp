@@ -17,7 +17,7 @@
             //doc.firstChild.play();
             //document.getElementById('captureStreams').append(doc.firstChild);
             const video = document.createElement('video');
-            const resultantStreams = localStorage.getItem("blobss");
+            const resultantStreams = localStorage.getItem("file");
             // const reader = new FileReader();
             // reader.onload = (event) => {
             //     video.srcObject = event.target.result;
@@ -27,8 +27,6 @@
             console.log('File reader result: ', resultantStreams);
             var blob = new Blob([resultantStreams], { type: "video/webm" });
             console.log('Blob converted Result: ', blob);
-            video.src = null;
-            video.srcObject = null;
             video.src = URL.createObjectURL(blob);
             video.controls = true;
             video.muted = true;
