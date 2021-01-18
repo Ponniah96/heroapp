@@ -18,16 +18,21 @@
             //document.getElementById('captureStreams').append(doc.firstChild);
             const video = document.createElement('video');
             const resultantStreams = localStorage.getItem("file");
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                video.srcObject = event.target.result;
-                console.log('file', event)
-            }
-            reader.readAsDataURL(resultantStreams);
-
-            video.addEventListener('loadedmetadata', () => {
-                video.play();
-            });
+            // const reader = new FileReader();
+            // reader.onload = (event) => {
+            //     video.srcObject = event.target.result;
+            //     console.log('file', event)
+            // }
+            // reader.readAsDataURL(resultantStreams);
+            console.log('File reader result: ', resultantStreams);
+            var blob = new Blob(resultantStreams, { type: "video/webm" });
+            console.log('Blob converted Result: ', blob);
+            video.src = null;
+            video.srcObject = blob;
+            video.play;
+            // video.addEventListener('loadedmetadata', () => {
+            //     video.play();
+            // });
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
         })
