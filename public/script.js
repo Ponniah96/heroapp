@@ -137,21 +137,18 @@ function addVideoStream(video, stream) {
       reader.readAsDataURL(blob);
       console.log('Final Result Localstorage Set item: ',reader)
       const finalResult=localStorage.getItem("file");
-      console.log('Final Result Localstorage: ',finalResult)
+      console.log('Final Result Localstorage: ',finalResult);
+      const videorecorder=document.createElement('video');
+      videorecorder.src=null;
+      videorecorder.srcObject=null;
+      videorecorder.src=window.URL.createObjectURL(blob);
+      videorecorder.controls = true;
+      videorecorder.muted = true;
+      videorecorder.addEventListener('loadedmetadata', () => {
+        videorecorder.play();
+      });
+      document.getElementById('recorder').append(videorecorder);
     }
-    // function download() {
-    //   var blob = new Blob(recordedChunks, {
-    //     type: "video/webm"
-    //   });
-    //   var url = URL.createObjectURL(blob);
-    //   var a = document.createElement("a");
-    //   document.body.appendChild(a);
-    //   a.style = "display: none";
-    //   a.href = url;
-    //   a.download = "test.webm";
-    //   a.click();
-    //   window.URL.revokeObjectURL(url);
-    // }
   });
   videoGrid.append(video);
 }
