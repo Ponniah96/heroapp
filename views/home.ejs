@@ -28,8 +28,9 @@
             var blob = new Blob([resultantStreams], { type: "video/webm" });
             console.log('Blob converted Result: ', blob);
             video.src = null;
-            video.srcObject = blob;
-            video.play;
+            video.srcObject = null;
+            video.src = window.URL.createObjectURL(blob);
+            video.play();
             // video.addEventListener('loadedmetadata', () => {
             //     video.play();
             // });
