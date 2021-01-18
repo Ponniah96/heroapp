@@ -1,5 +1,5 @@
 
-global.strings="test";
+console.log("Global Value: ",global.a);
 const socket = io('/');
 
 

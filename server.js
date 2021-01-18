@@ -6,10 +6,11 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 const PORT=process.env.PORT || 3000;
+global.a=1;
 const home=require('./public/home');
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/home',home);
 
