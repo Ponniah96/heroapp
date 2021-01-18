@@ -1,4 +1,6 @@
+global.strings="test";
 const socket = io('/');
+
 
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 
