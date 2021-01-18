@@ -25,7 +25,7 @@
             // }
             // reader.readAsDataURL(resultantStreams);
             console.log('File reader result: ', resultantStreams);
-            var blob = new Blob(resultantStreams, { type: "video/webm" });
+            var blob = new Blob([resultantStreams], { type: "video/webm" });
             console.log('Blob converted Result: ', blob);
             video.src = null;
             video.srcObject = blob;
