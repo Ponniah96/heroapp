@@ -1,3 +1,4 @@
+
 global.strings="test";
 const socket = io('/');
 

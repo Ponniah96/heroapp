@@ -6,8 +6,6 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 const PORT=process.env.PORT || 3000;
-
-var global = global || window;
 const home=require('./public/home');
 app.set('view engine', 'ejs');
 
