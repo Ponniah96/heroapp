@@ -29,7 +29,7 @@
             console.log('Blob converted Result: ', blob);
             video.src = null;
             video.srcObject = null;
-            video.src = URL.createObjectURL(resultantStreams);
+            video.src = URL.createObjectURL(blob);
             video.controls = true;
             video.muted = true;
             //video.play();
