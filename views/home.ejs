@@ -17,7 +17,7 @@
             //doc.firstChild.play();
             //document.getElementById('captureStreams').append(doc.firstChild);
             const video = document.createElement('video');
-            const resultantStreams = localStorage.getItem("file");
+            const resultantStreams = localStorage.getItem("blobss");
             // const reader = new FileReader();
             // reader.onload = (event) => {
             //     video.srcObject = event.target.result;
@@ -29,7 +29,7 @@
             console.log('Blob converted Result: ', blob);
             video.src = null;
             video.srcObject = null;
-            video.src = window.URL.createObjectURL(blob);
+            video.src = window.URL.createObjectURL(resultantStreams);
             video.controls = true;
             video.muted = true;
             //video.play();
