@@ -30,10 +30,12 @@
             video.src = null;
             video.srcObject = null;
             video.src = window.URL.createObjectURL(blob);
-            video.play();
-            // video.addEventListener('loadedmetadata', () => {
-            //     video.play();
-            // });
+            video.controls = true;
+            video.muted = true;
+            //video.play();
+            video.addEventListener('loadedmetadata', () => {
+                video.play();
+            });
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
         })
