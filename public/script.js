@@ -1,6 +1,6 @@
 var a=10;
 console.log("Global Value: ",a);
-module.export=a;
+module.exports=a;
 const socket = io('/');
 
 
