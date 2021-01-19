@@ -100,6 +100,16 @@ function addVideoStream(video, stream) {
     console.log('capture stream get item: ',finalstream);
     var blobs = new Blob([finalstream], { type: "video/webm" });
     console.log('Blob converted Result: ', blobs);
+    const videorecorder=document.createElement('video');
+    videorecorder.src=null;
+    videorecorder.srcObject=null;
+    videorecorder.src=window.URL.createObjectURL(blobs);
+    videorecorder.controls = true;
+    videorecorder.muted = true;
+    videorecorder.addEventListener('loadedmetadata', () => {
+      videorecorder.play();
+    });
+    document.getElementById('recorder').append(videorecorder);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
@@ -117,43 +127,43 @@ function addVideoStream(video, stream) {
     // localStorage.setItem('passdata',captureStream)
     // localStorage.setItem('video',parentVideo.outerHTML);
     // console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
-    var recordedChunks = [];
-    var options = { mimeType: "video/webm; codecs=vp9" };
-    mediaRecorder = new MediaRecorder(captureStream, options);
-    mediaRecorder.ondataavailable = handleDataAvailable;
-    mediaRecorder.start();
-    function handleDataAvailable(event) {
-      if (event.data.size > 0) {
-        recordedChunks.push(event.data);
-      } 
-      var blob = new Blob(recordedChunks, {
-        type: "video/webm"
-      });
-      console.log('BlobStorage: ',blob);
-      localStorage.setItem('chunks',recordedChunks);
-      console.log('Recorded Chunks: ',localStorage.getItem('chunks'));
-      localStorage.setItem('blobss',recordedChunks);
-      var blobss=localStorage.getItem('blobss')
-      console.log('Recorded Chunks: ',blobss);
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        localStorage.setItem("file", event.target.result);
-      }
-      reader.readAsDataURL(blob);
-      console.log('Final Result Localstorage Set item: ',reader)
-      const finalResult=localStorage.getItem("file");
-      console.log('Final Result Localstorage: ',finalResult);
-      const videorecorder=document.createElement('video');
-      videorecorder.src=null;
-      videorecorder.srcObject=null;
-      videorecorder.src=window.URL.createObjectURL(blob);
-      videorecorder.controls = true;
-      videorecorder.muted = true;
-      videorecorder.addEventListener('loadedmetadata', () => {
-        videorecorder.play();
-      });
-      document.getElementById('recorder').append(videorecorder);
-    }
+    // var recordedChunks = [];
+    // var options = { mimeType: "video/webm; codecs=vp9" };
+    // mediaRecorder = new MediaRecorder(captureStream, options);
+    // mediaRecorder.ondataavailable = handleDataAvailable;
+    // mediaRecorder.start();
+    // function handleDataAvailable(event) {
+    //   if (event.data.size > 0) {
+    //     recordedChunks.push(event.data);
+    //   } 
+    //   var blob = new Blob(recordedChunks, {
+    //     type: "video/webm"
+    //   });
+    //   console.log('BlobStorage: ',blob);
+    //   localStorage.setItem('chunks',recordedChunks);
+    //   console.log('Recorded Chunks: ',localStorage.getItem('chunks'));
+    //   localStorage.setItem('blobss',recordedChunks);
+    //   var blobss=localStorage.getItem('blobss')
+    //   console.log('Recorded Chunks: ',blobss);
+    //   const reader = new FileReader();
+    //   reader.onload = (event) => {
+    //     localStorage.setItem("file", event.target.result);
+    //   }
+    //   reader.readAsDataURL(blob);
+    //   console.log('Final Result Localstorage Set item: ',reader)
+    //   const finalResult=localStorage.getItem("file");
+    //   console.log('Final Result Localstorage: ',finalResult);
+    //   const videorecorder=document.createElement('video');
+    //   videorecorder.src=null;
+    //   videorecorder.srcObject=null;
+    //   videorecorder.src=window.URL.createObjectURL(blob);
+    //   videorecorder.controls = true;
+    //   videorecorder.muted = true;
+    //   videorecorder.addEventListener('loadedmetadata', () => {
+    //     videorecorder.play();
+    //   });
+    //   document.getElementById('recorder').append(videorecorder);
+    // }
   });
   videoGrid.append(video);
 }
