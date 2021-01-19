@@ -14,8 +14,8 @@
             video.play();
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
-            export function test(a){
-                console.log('captuyre stream: ',a);
-            }
+            // export function test(a){
+            //     console.log('captuyre stream: ',a);
+            // }
             
             
