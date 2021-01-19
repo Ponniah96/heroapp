@@ -106,15 +106,12 @@ function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-    var captureStream=video.captureStream();
+    export var captureStream=video.captureStream();
     console.log('Capture Peer Stream: ',captureStream);
     localStorage.setItem('capturestream',captureStream);
+    
     var finalstream=localStorage.getItem('capturestream');
     console.log('capture stream get item: ',finalstream);
-    var extractValue=Object.values(finalstream);
-    var extractKeys=Object.keys(finalstream);
-    console.log("Extract Values from Object values: ",extractValue);
-    console.log("Extract Values from Object keys: ",extractKeys);
     var blobs = new Blob([finalstream], { type: "video/webm" });
     console.log('Blob converted Result: ', blobs);
     var videoCapture=document.createElement('video');
