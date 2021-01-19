@@ -1,8 +1,4 @@
-var a=10;
-console.log("Global Value: ",a);
-module.exports=a;
 const socket = io('/');
-
 
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 

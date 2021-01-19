@@ -23,13 +23,6 @@ app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
 })
 
-// const homePage=router.get('/',(req, res)=>{
-//   res.render('home');
-// })
-
-// router.use('/home',homePage);
-
-
 io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
   console.log("socket connected: ",roomId,userId);
