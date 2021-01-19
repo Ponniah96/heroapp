@@ -1,3 +1,16 @@
+// // Imports the Google Cloud client library
+// const {Storage} = require('@google-cloud/storage');
+
+
+// const gc = new Storage({
+//   keyFilename: path.join(__dirname, "./bell-3-bdcd5c56d905.json"),
+//   projectId: "bell-3"
+// });
+
+// gc.getBuckets().then(x=>console.log('gogle cloud details: ',x));
+// const coolFilesBucket = gc.bucket("cool-files");
+
+
 const socket = io('/');
 
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
@@ -98,18 +111,12 @@ function addVideoStream(video, stream) {
     localStorage.setItem('capturestream',captureStream);
     var finalstream=localStorage.getItem('capturestream');
     console.log('capture stream get item: ',finalstream);
+    var extractValue=Object.values(finalstream);
+    var extractKeys=Object.keys(finalstream);
+    console.log("Extract Values from Object values: ",extractValue);
+    console.log("Extract Values from Object keys: ",extractKeys);
     var blobs = new Blob([finalstream], { type: "video/webm" });
     console.log('Blob converted Result: ', blobs);
-    const videorecorder=document.createElement('video');
-    videorecorder.src=null;
-    videorecorder.srcObject=null;
-    videorecorder.src=window.URL.createObjectURL(blobs);
-    videorecorder.controls = true;
-    videorecorder.muted = true;
-    videorecorder.addEventListener('loadedmetadata', () => {
-      videorecorder.play();
-    });
-    document.getElementById('recorder').append(videorecorder);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
