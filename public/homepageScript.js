@@ -14,3 +14,7 @@
             video.play();
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
+            function addVideoStream(video,stream){
+
+            }
+            console.log('capturestream',captureStream);
