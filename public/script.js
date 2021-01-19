@@ -32,6 +32,7 @@ socket.on('user-disconnected',userId=>{
   console.log('User disconnected: '+userId);
 })
 
+export var captureStream;
 
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
@@ -106,10 +107,9 @@ function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-    var captureStream=video.captureStream();
+     captureStream=video.captureStream();
     console.log('Capture Peer Stream: ',captureStream);
     localStorage.setItem('capturestream',captureStream);
-    
     var finalstream=localStorage.getItem('capturestream');
     console.log('capture stream get item: ',finalstream);
     var blobs = new Blob([finalstream], { type: "video/webm" });
