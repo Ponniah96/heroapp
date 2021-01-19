@@ -1,5 +1,4 @@
-            import {test} from './script';
-            console.log(test());
+            
             console.log('Welcome to homepage');
             const parentVideo = document.getElementById('captureStreams');
             const video = document.createElement('video');
@@ -15,5 +14,8 @@
             video.play();
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
+            export function test(a){
+                console.log('captuyre stream: ',a);
+            }
             
             
