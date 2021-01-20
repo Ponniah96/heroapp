@@ -101,7 +101,7 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
-const captureStream;
+var captureStream;
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
