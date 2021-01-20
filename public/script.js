@@ -6,7 +6,7 @@ const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-const strearesult
+const strearesult={};
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
