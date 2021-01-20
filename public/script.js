@@ -9,8 +9,6 @@
 
 // gc.getBuckets().then(x=>console.log('gogle cloud details: ',x));
 // const coolFilesBucket = gc.bucket("cool-files");
-
-import {test} from './homepageScript.js';
 const socket = io('/');
 
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
@@ -103,12 +101,12 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
+const captureStream;
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-    var captureStream=video.captureStream();
-    test(captureStream);
+    captureStream=video.captureStream();
     console.log('Capture Peer Stream: ',captureStream);
     localStorage.setItem('capturestream',captureStream);
     var finalstream=localStorage.getItem('capturestream');
@@ -235,3 +233,5 @@ function addOwnVideoStream(video, stream) {
 // }
 
 /**Screen Share Code Ends */
+
+export {captureStream}

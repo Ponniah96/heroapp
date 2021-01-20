@@ -1,4 +1,5 @@
             
+            import {captureStream} from './script.js'
             console.log('Welcome to homepage');
             // const parentVideos = document.getElementById('captureStreams');
             // const video = document.createElement('video');
@@ -16,16 +17,21 @@
             // parentVideos.append(video);
             // console.log("After Append: ", parentVideos);
             // }
-            const test =(a)=>{
-                console.log('Capture Stream: ',a);
-                if(window.location.pathname=='/home'){
-                const parentVideos = document.getElementById('captureStreams');
-                const video = document.createElement('video');
-                video.srcObject = null;
-                video.play();
-                parentVideos.append(video);
-                }
-            }
-            export {test};
+            // var b;
+            // const test =(a)=>{
+            //     console.log('Capture Stream: ',a);
+            //     b=a;
+            //     if(window.location.pathname=='/home'){
+            //     const parentVideos = document.getElementById('captureStreams');
+            //     const video = document.createElement('video');
+            //     video.srcObject = null;
+            //     video.play();
+            //     parentVideos.append(video);
+            //     }
+            // }
+
+            // console.log(b);
+            // export {test};
+            console.log("CaptureStream: ",captureStream)
             
             
