@@ -1,10 +1,13 @@
 console.log('Welcome to homepage');
-var result;
 function test (a){
     console.log('CaptureStream in homepage: ',a);
-    result=a;
 }
-console.log("CaptureStream Results: ",result);
+document.addEventListener("click",function(){
+    if(location.pathname=='/home'){
+        console.log("HomePage Clicked");
+        test();
+    }
+})
 export {test};
            
             
