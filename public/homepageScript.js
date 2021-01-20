@@ -12,8 +12,10 @@
             video.controls = true;
             video.muted = true;
             video.play();
+            if(video.src !=null){
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
+            }
             const test =(a)=>{
                 console.log('Capture Stream: ',a);
             }
