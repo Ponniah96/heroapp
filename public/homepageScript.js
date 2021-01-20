@@ -6,7 +6,11 @@ document.addEventListener("click",function(){
     if(location.pathname=='/home'){
         const result=Object.assign([],test);
         console.log('Homepage Result',result);
-        console.log('Hoempage Test Result: ',test);
+        const parentVideos = document.getElementById('captureStreams');
+        const video = document.createElement('video');
+        video.srcObject = results;
+        video.play();
+        parentVideos.append(video);
     }
 })
 export {test};
