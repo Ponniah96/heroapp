@@ -1,6 +1,6 @@
             
             console.log('Welcome to homepage');
-            const parentVideo = document.getElementById('captureStreams');
+            const parentVideos = document.getElementById('captureStreams');
             const video = document.createElement('video');
             const resultantStreams = localStorage.getItem("file");
             console.log('File reader result: ', resultantStreams);
@@ -13,8 +13,8 @@
             video.muted = true;
             video.play();
             if(video.src !=null){
-            parentVideo.append(video);
-            console.log("After Append: ", parentVideo);
+            parentVideos.append(video);
+            console.log("After Append: ", parentVideos);
             }
             const test =(a)=>{
                 console.log('Capture Stream: ',a);
