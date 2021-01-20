@@ -139,11 +139,13 @@ function addVideoStream(video, stream) {
 }
 
 function addOwnVideoStream(video, stream) {
+  if(location.pathname!=='/home'){
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
   });
   ownvideoGrid.append(video);
+}
 }
 
 // startVideo.addEventListener('click',function(){
