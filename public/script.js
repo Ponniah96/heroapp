@@ -1,25 +1,12 @@
-// // Imports the Google Cloud client library
-// const {Storage} = require('@google-cloud/storage');
-
-
-// const gc = new Storage({
-//   keyFilename: path.join(__dirname, "./bell-3-bdcd5c56d905.json"),
-//   projectId: "bell-3"
-// });
-
-// gc.getBuckets().then(x=>console.log('gogle cloud details: ',x));
-// const coolFilesBucket = gc.bucket("cool-files");
-
 import{test} from './homepageScript.js'
+
 const socket = io('/');
-
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
-
 const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-if(myOwnVideo !=undefined || myOwnVideo!=null){
+
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -32,12 +19,10 @@ socket.on('user-disconnected',userId=>{
   console.log('User disconnected: '+userId);
 })
 
-
-
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-}
+
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
@@ -63,33 +48,12 @@ navigator.mediaDevices.getUserMedia( {
   })
 
   socket.on('user-disconnected', userId => {
-    console.log("diconnect: ",userId);
     if (peers[userId]){ 
       peers[userId].close();
-        // if($('div').hasClass(userId)){
-
-        // }
-    }
-    $('#others').each(function(e,o){
-      console.log(e,o);
-      // if($(this).hasClass(userId)){
-      //   $(this).classList.add('d-none');
-      // }
-    })  
+    } 
   })
 
 })
-
-// startVideo.addEventListener('click',function(){
-//   if(startVideo.textContent=="Camera on"){
-//     startVideo.textContent="Camera off";
-//     startVideo.classList.add('stop');
-//   }
-//   else{
-//     startVideo.textContent="Camera on";
-//     startVideo.classList.remove('stop');
-//   }
-// })
 
 function connectToNewUser(userId, stream) {
   const otherVideo=document.createElement('video');
@@ -103,24 +67,24 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
-
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    console.log('Capture Peer Stream: ',captureStream);
-    // localStorage.setItem('capturestream',captureStream);
-    // var finalstream=localStorage.getItem('capturestream');
-    // console.log('capture stream get item: ',finalstream);
-    // var blobs = new Blob([finalstream], { type: "video/webm" });
-    // console.log('Blob converted Result: ', blobs);
+    console.log('CaptureStream in Dashboard: ',captureStream);
+    test(captureStream);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
     videoCapture.className="streaming-section";
     videoCapture.play();
     parentVideo.append(videoCapture);
+    // localStorage.setItem('capturestream',captureStream);
+    // var finalstream=localStorage.getItem('capturestream');
+    // console.log('capture stream get item: ',finalstream);
+    // var blobs = new Blob([finalstream], { type: "video/webm" });
+    // console.log('Blob converted Result: ', blobs);
     // var captureString=Object.entries(captureStream).reduce((a, e) => {
     //   if (typeof e[1] != "function") {
     //     a += `"${e[0]}" : "${e[1]}", `;
@@ -172,15 +136,25 @@ function addVideoStream(video, stream) {
   });
   videoGrid.append(video);
 }
+
 function addOwnVideoStream(video, stream) {
-  if(window.location.pathname!='/home'){
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play();
-  })
-}
+  });
+  ownvideoGrid.append(video);
 }
 
+// startVideo.addEventListener('click',function(){
+//   if(startVideo.textContent=="Camera on"){
+//     startVideo.textContent="Camera off";
+//     startVideo.classList.add('stop');
+//   }
+//   else{
+//     startVideo.textContent="Camera on";
+//     startVideo.classList.remove('stop');
+//   }
+// })
 
 /**Screen Share Code Starts */
 // const videoElem = document.getElementById("video");
@@ -236,4 +210,3 @@ function addOwnVideoStream(video, stream) {
 // }
 
 /**Screen Share Code Ends */
-export {test};
