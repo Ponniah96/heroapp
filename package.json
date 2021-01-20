@@ -2,6 +2,7 @@
   "name": "zoom-clone",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "devStart": "nodemon server.js"
   },
