@@ -6,7 +6,7 @@ const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-
+const strearesult
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -72,7 +72,8 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    console.log('CaptureStream in Dashboard: ',captureStream);
+    strearesult=captureStream;
+    console.log('StreamResult in Dashboard: ',strearesult);
     test(captureStream);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
