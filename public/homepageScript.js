@@ -8,7 +8,7 @@ document.addEventListener("click",function(){
         console.log('Homepage Result',result);
         const parentVideos = document.getElementById('captureStreams');
         const video = document.createElement('video');
-        video.srcObject = results;
+        video.srcObject = result;
         video.play();
         parentVideos.append(video);
     }
