@@ -14,8 +14,9 @@
             video.play();
             parentVideo.append(video);
             console.log("After Append: ", parentVideo);
-            // export function test(a){
-            //     console.log('captuyre stream: ',a);
-            // }
+            const test =(a)=>{
+                console.log('Capture Stream: ',a);
+            }
+            export {test};
             
             
