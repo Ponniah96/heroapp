@@ -1,13 +1,10 @@
 console.log('Welcome to homepage');
+var result;
 function test (a){
     console.log('CaptureStream in homepage: ',a);
-    const parentVideos = document.getElementById('captureStreams');
-    const video = document.createElement('video');
-    video.srcObject = null;
-    video.play();
-    parentVideos.append(video);
+    result=a;
 }
-console.log("Homepage Scripts");
+console.log("CaptureStream Results: ",result);
 export {test};
            
             

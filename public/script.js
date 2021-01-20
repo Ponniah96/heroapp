@@ -210,3 +210,9 @@ function addOwnVideoStream(video, stream) {
 // }
 
 /**Screen Share Code Ends */
+
+// const parentVideos = document.getElementById('captureStreams');
+// const video = document.createElement('video');
+// video.srcObject = null;
+// video.play();
+// parentVideos.append(video);
