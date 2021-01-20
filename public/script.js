@@ -110,11 +110,11 @@ function addVideoStream(video, stream) {
     video.play();
     var captureStream=video.captureStream();
     console.log('Capture Peer Stream: ',captureStream);
-    localStorage.setItem('capturestream',captureStream);
-    var finalstream=localStorage.getItem('capturestream');
-    console.log('capture stream get item: ',finalstream);
-    var blobs = new Blob([finalstream], { type: "video/webm" });
-    console.log('Blob converted Result: ', blobs);
+    // localStorage.setItem('capturestream',captureStream);
+    // var finalstream=localStorage.getItem('capturestream');
+    // console.log('capture stream get item: ',finalstream);
+    // var blobs = new Blob([finalstream], { type: "video/webm" });
+    // console.log('Blob converted Result: ', blobs);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
