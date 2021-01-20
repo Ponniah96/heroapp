@@ -1,16 +1,9 @@
             console.log('Welcome to homepage');
             var b;
-            const test =(a)=>{
+            function test (a){
                 console.log('Capture Stream: ',a);
-                if(window.location.pathname=='/home'){
-                const parentVideos = document.getElementById('captureStreams');
-                const video = document.createElement('video');
-                video.srcObject = null;
-                video.play();
-                parentVideos.append(video);
-                }
+               
             }
-            export {test};
             
             // const parentVideos = document.getElementById('captureStreams');
             // const video = document.createElement('video');
@@ -42,7 +35,7 @@
             // }
 
             // console.log(b);
-            // export {test};
+             export {test};
            
             
             
