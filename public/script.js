@@ -6,7 +6,7 @@ const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-var strearesult=2;
+export var strearesult=2;
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -235,4 +235,4 @@ function addOwnVideoStream(video, stream) {
 // export {test};
 
 
-export {strearesult};
+//export {strearesult};
