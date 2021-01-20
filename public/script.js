@@ -1,4 +1,4 @@
-//import{test} from './homepageScript.js'
+import{test} from './homepageScript.js'
 
 const socket = io('/');
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
@@ -6,7 +6,7 @@ const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-var strearesult;
+//var strearesult;
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -72,7 +72,8 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    strearesult=captureStream;
+    //strearesult=captureStream;
+    test(captureStream);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
@@ -234,4 +235,4 @@ function addOwnVideoStream(video, stream) {
 // export {test};
 
 
-export {strearesult};
+//export {strearesult};
