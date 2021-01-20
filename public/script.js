@@ -1,4 +1,4 @@
-import{test} from './homepageScript.js'
+//import{test} from './homepageScript.js'
 
 const socket = io('/');
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
@@ -73,8 +73,6 @@ function addVideoStream(video, stream) {
     video.play();
     var captureStream=video.captureStream();
     strearesult=captureStream;
-    console.log('StreamResult in Dashboard: ',strearesult);
-    test(captureStream);
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
@@ -217,3 +215,23 @@ function addOwnVideoStream(video, stream) {
 // video.srcObject = null;
 // video.play();
 // parentVideos.append(video);
+
+
+// const test =(a)=>{
+//   return a;
+// }
+// document.addEventListener("click",function(){
+//   if(location.pathname=='/home'){
+//       const result=Object.assign([],test);
+//       console.log('Homepage Result',result);
+//       const parentVideos = document.getElementById('captureStreams');
+//       const video = document.createElement('video');
+//       video.srcObject = result;
+//       video.play();
+//       parentVideos.append(video);
+//   }
+// })
+// export {test};
+
+
+export {strearesult};
