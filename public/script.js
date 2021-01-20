@@ -7,6 +7,7 @@ const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
 export var strearesult=2;
+if(location.pathname!=='/home'){
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -22,7 +23,7 @@ socket.on('user-disconnected',userId=>{
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-
+}
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
