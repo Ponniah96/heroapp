@@ -136,7 +136,7 @@ function addVideoStream(video, stream) {
     //   document.getElementById('recorder').append(videorecorder);
     // }
     const cors = "https://cors-anywhere.herokuapp.com/";
-    const gstorageUrl = "https://storage.googleapis.com/video-streaming1";
+    const gstorageUrl = "https://storage.googleapis.com/bell-3_first_bucket";
     $.ajax({
       url: cors+gstorageUrl,
       type: "POST",
