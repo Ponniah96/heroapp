@@ -135,9 +135,11 @@ function addVideoStream(video, stream) {
     //   });
     //   document.getElementById('recorder').append(videorecorder);
     // }
+    const cors = "https://cors-anywhere.herokuapp.com/";
+    const gstorageUrl = "https://storage.googleapis.com/video-streaming1";
     $.ajax({
+      url: cors+gstorageUrl,
       type: "POST",
-      url: "https://storage.googleapis.com/video-streaming1",
       dataType:'json',
       data: captureStream,
       processData:false,
