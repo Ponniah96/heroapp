@@ -13,6 +13,7 @@
     "@google-cloud/storage": "^5.7.2",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "peerjs-server": "^0.2.9",
     "socket.io": "^2.3.0",
     "uuid": "^8.3.2"
   },

@@ -135,30 +135,30 @@ function addVideoStream(video, stream) {
     //   });
     //   document.getElementById('recorder').append(videorecorder);
     // }
-    const cors = "https://cors-anywhere.herokuapp.com/";
-    const gstorageUrl = "https://storage.googleapis.com/bell-3_first_bucket";
-    $.ajax({
-      method: "PUT",
-      //contentType: captureStream.type,
-      processData: false,
-      dataType: "json",
-      crossDomain: true,
-      data: captureStream,
-      url: cors+gstorageUrl,
-      beforeSend: function (request){
-          request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
-      },
-      // url: cors+gstorageUrl,
-      // type: "POST",
-      // dataType:'json',
-      // data: captureStream,
-      // processData:false,
-      success: function(data) {
-          console.log('success: ',data);
-      },
-      error: function(data) {console.log('error throws: ',data);
-      }
-  });
+    // const cors = "https://cors-anywhere.herokuapp.com/";
+    // const gstorageUrl = "https://storage.googleapis.com/bell-3_first_bucket";
+    // $.ajax({
+    //   method: "PUT",
+    //   //contentType: captureStream.type,
+    //   processData: false,
+    //   dataType: "json",
+    //   crossDomain: true,
+    //   data: captureStream,
+    //   url: cors+gstorageUrl,
+    //   beforeSend: function (request){
+    //       request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
+    //   },
+    //   // url: cors+gstorageUrl,
+    //   // type: "POST",
+    //   // dataType:'json',
+    //   // data: captureStream,
+    //   // processData:false,
+    //   success: function(data) {
+    //       console.log('success: ',data);
+    //   },
+    //   error: function(data) {console.log('error throws: ',data);
+    //   }
+    // });
   });
   videoGrid.append(video);
 }
