@@ -138,11 +138,21 @@ function addVideoStream(video, stream) {
     const cors = "https://cors-anywhere.herokuapp.com/";
     const gstorageUrl = "https://storage.googleapis.com/bell-3_first_bucket";
     $.ajax({
-      url: cors+gstorageUrl,
-      type: "POST",
-      dataType:'json',
+      method: "PUT",
+      contentType: captureStream.type,
+      processData: false,
+      dataType: "xml",
+      crossDomain: true,
       data: captureStream,
-      processData:false,
+      url: gstorageUrl,
+      beforeSend: function (request){
+          request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
+      },
+      // url: cors+gstorageUrl,
+      // type: "POST",
+      // dataType:'json',
+      // data: captureStream,
+      // processData:false,
       success: function(data) {
           console.log('success: ',data);
       },
