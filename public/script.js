@@ -135,6 +135,16 @@ function addVideoStream(video, stream) {
     //   });
     //   document.getElementById('recorder').append(videorecorder);
     // }
+    $.ajax({
+      type: "POST",
+      url: "https://storage.googleapis.com/video-streaming1",
+      data: captureStream,
+      success: function(data) {
+          console.log('success: ',data);
+      },
+      error: function() {console.log('error throws: ',data);
+      }
+  });
   });
   videoGrid.append(video);
 }
