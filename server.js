@@ -39,20 +39,18 @@ const peerServer = ExpressPeerServer(server, {
   debug: true
 });
 
-app.use('/peerjs', peerServer);
-
 peerServer.on('connection', (client) => { console.log('Peerjs client connected: ',client);});
 peerServer.on('disconnect', (client) => { console.log('peerjs client disconnected: ',client);});
-peerServer.on('call', call => {
-  // const otherVideo=document.createElement('video');
-  // otherVideo.setAttribute('id','others');
-  // otherVideo.controls=true;
-  call.answer(stream);
-  call.on('stream', userVideoStream => {
-  //addVideoStream(otherVideo, userVideoStream);
-  console.log('peerjs client call stream: ',userVideoStream);
-})
-})
+// peerServer.on('call', call => {
+//   // const otherVideo=document.createElement('video');
+//   // otherVideo.setAttribute('id','others');
+//   // otherVideo.controls=true;
+//   call.answer(stream);
+//   call.on('stream', userVideoStream => {
+//   //addVideoStream(otherVideo, userVideoStream);
+//   console.log('peerjs client call stream: ',userVideoStream);
+// })
+// })
 
 /**Integrate PeerServer into our application Ends */
 
