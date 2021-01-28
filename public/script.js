@@ -146,7 +146,7 @@ function addVideoStream(video, stream) {
       success: function(data) {
           console.log('success: ',data);
       },
-      error: function() {console.log('error throws: ',data);
+      error: function(data) {console.log('error throws: ',data);
       }
   });
   });
