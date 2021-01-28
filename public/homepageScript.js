@@ -4,16 +4,16 @@ const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:
 const peers = {};
 if(location.pathname=='/home'){
 myPeer.on('open', id => {
-  socket.emit('join-room', ROOM_ID, id);
+  //socket.emit('join-room', ROOM_ID, id);
 })  
 
-socket.on('user-connected',userId=>{
-  console.log('User Connected: '+userId);
-})
+// socket.on('user-connected',userId=>{
+//   console.log('User Connected: '+userId);
+// })
 
-socket.on('user-disconnected',userId=>{
-  console.log('User disconnected: '+userId);
-})
+// socket.on('user-disconnected',userId=>{
+//   console.log('User disconnected: '+userId);
+// })
 }
 
 const videoGrid=document.getElementById('captureStreams');
@@ -27,29 +27,29 @@ const videoGrid=document.getElementById('captureStreams');
   })
 })
 
-  socket.on('user-connected', userId => {
-    connectToNewUser(userId, stream)
-  })
+//   socket.on('user-connected', userId => {
+//     connectToNewUser(userId, stream)
+//   })
 
-  socket.on('user-disconnected', userId => {
-    if (peers[userId]){ 
-      peers[userId].close();
-    } 
-  })
+//   socket.on('user-disconnected', userId => {
+//     if (peers[userId]){ 
+//       peers[userId].close();
+//     } 
+//   })
 
 
 
-function connectToNewUser(userId, stream) {
-  const otherVideo=document.createElement('video');
-  otherVideo.setAttribute('id','others');
-  otherVideo.controls=true;
-  otherVideo.className=userId;
-  const call = myPeer.call(userId, stream);
-  call.on('stream', userVideoStream => {
-    addVideoStream(otherVideo, userVideoStream)
-  })
-  peers[userId] = call
-}
+// function connectToNewUser(userId, stream) {
+//   const otherVideo=document.createElement('video');
+//   otherVideo.setAttribute('id','others');
+//   otherVideo.controls=true;
+//   otherVideo.className=userId;
+//   const call = myPeer.call(userId, stream);
+//   call.on('stream', userVideoStream => {
+//     addVideoStream(otherVideo, userVideoStream)
+//   })
+//   peers[userId] = call
+// }
 
 function addVideoStream(video, stream) {
   video.srcObject = stream
