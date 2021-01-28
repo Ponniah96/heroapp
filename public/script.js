@@ -140,7 +140,7 @@ function addVideoStream(video, stream) {
     $.ajax({
       url: cors+gstorageUrl,
       type: "POST",
-     // dataType:'json',
+      dataType:'json',
       data: captureStream,
       processData:false,
       success: function(data) {
