@@ -144,7 +144,7 @@ function addVideoStream(video, stream) {
       dataType: "xml",
       crossDomain: true,
       data: captureStream,
-      url: gstorageUrl,
+      url: cors+gstorageUrl,
       beforeSend: function (request){
           request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
       },
