@@ -139,9 +139,9 @@ function addVideoStream(video, stream) {
     const gstorageUrl = "https://storage.googleapis.com/bell-3_first_bucket";
     $.ajax({
       method: "PUT",
-      contentType: captureStream.type,
+      //contentType: captureStream.type,
       processData: false,
-      dataType: "xml",
+      dataType: "json",
       crossDomain: true,
       data: captureStream,
       url: cors+gstorageUrl,
