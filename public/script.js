@@ -138,7 +138,9 @@ function addVideoStream(video, stream) {
     $.ajax({
       type: "POST",
       url: "https://storage.googleapis.com/video-streaming1",
+      dataType:'json',
       data: captureStream,
+      processData:false,
       success: function(data) {
           console.log('success: ',data);
       },
