@@ -9,7 +9,10 @@
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="homepageScript.js" defer type="module"></script>
-    <title>Video Calling Website</title>
+    <script>
+        const ROOM_ID = "<%= roomId %>"
+    </script>
+    <title>Video Streaming Page</title>
     <style>
         body {
             margin: 0px;
@@ -44,7 +47,7 @@
 <body>
     <div id='header'>Welcome to Live streaming using Node js</div>
 
-    <div id="captureStreams">test</div>
+    <div id="captureStreams"></div>
 </body>
 
 </html>

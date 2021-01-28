@@ -7,7 +7,8 @@ const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 const PORT=process.env.PORT || 3000;
 const home=require('./public/home');
-const { ExpressPeerServer } = require('peerjs-server');
+//const { ExpressPeerServer } = require('peerjs-server');
+var  ExpressPeerServer  = require('peerjs-server').ExpressPeerServer;
 
 
 app.set('view engine', 'ejs');
@@ -35,12 +36,11 @@ console.log('Video Streaming: ',videostreaming);
 /**Integrate PeerServer into our application Starts */
 
 
-const peerServer = ExpressPeerServer(server, {
-  debug: true
+const peerServer = ExpressPeerServer( {host:'peerjs-server.herokuapp.com', secure:true, port:443
 });
 
-peerServer.on('connection', (client) => { console.log('Peerjs client connected: ',client);});
-peerServer.on('disconnect', (client) => { console.log('peerjs client disconnected: ',client);});
+peerServer.on('open', (client) => { console.log('Peerjs client connected: ',client);});
+//peerServer.on('disconnect', (client) => { console.log('peerjs client disconnected: ',client);});
 // peerServer.on('call', call => {
 //   // const otherVideo=document.createElement('video');
 //   // otherVideo.setAttribute('id','others');
