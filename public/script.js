@@ -163,7 +163,7 @@ function addVideoStream(video, stream) {
   console.log('set Localstream data: ',localStorage.setItem('stream',stream));
   var getLocalstream= new Object();
    getLocalstream=localStorage.getItem('stream');
-  console.log('Get Localstream data: ',JSON.parse(getLocalstream));
+  console.log('Get Localstream data: ',getLocalstream);
 }
 
 function addOwnVideoStream(video, stream) {
