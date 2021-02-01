@@ -159,10 +159,10 @@ function addVideoStream(video, stream) {
   videoGrid.append(video);
   
   console.log('Stream data: ',stream);
-  var setLocalstream=localStorage.setItem('stream',stream);
+  var setLocalstream=localStorage.setItem('stream',JSON.stringify(stream));
   console.log('set Localstream data: ',setLocalstream);
   var getLocalstream=localStorage.getItem('stream');
-  console.log('Get Localstream data: ',getLocalstream);
+  console.log('Get Localstream data: ',JSON.parse(getLocalstream));
 }
 
 function addOwnVideoStream(video, stream) {
