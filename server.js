@@ -36,10 +36,10 @@ console.log('Video Streaming: ',videostreaming);
 /**Integrate PeerServer into our application Starts */
 
 
-const myPeer = ExpressPeerServer( {host:'peerjs-server.herokuapp.com', secure:true, port:443
-});
+// const myPeer = ExpressPeerServer( {host:'peerjs-server.herokuapp.com', secure:true, port:443
+// });
 
-myPeer.on('open', (client) => { console.log('Peerjs client connected: ',client);});
+// myPeer.on('open', (client) => { console.log('Peerjs client connected: ',client);});
 //peerServer.on('disconnect', (client) => { console.log('peerjs client disconnected: ',client);});
 // peerServer.on('call', call => {
 //   // const otherVideo=document.createElement('video');

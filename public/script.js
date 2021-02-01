@@ -1,14 +1,10 @@
-//import{test} from './homepageScript.js'
-//import {firstbucket} from "../server"
+
 const socket = io('/');
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
-// console.log('bucket details: ', firstbucket);
-export var strearesult;
-if(location.pathname!=='/home'){
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -24,7 +20,7 @@ socket.on('user-disconnected',userId=>{
 myOwnVideo.controls= true;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
-}
+
 const startVideo=document.getElementById('camera-on');
 
 navigator.mediaDevices.getUserMedia( {
@@ -71,11 +67,6 @@ function connectToNewUser(userId, stream) {
 
 function addVideoStream(video, stream) {
   video.srcObject = stream;
-  console.log('Stream data: ',stream);
-  var setLocalstream=localStorage.setItem('stream',stream);
-  console.log('set Localstream data: ',setLocalstream);
-  var getLocalstream=localStorage.getItem('stream');
-  console.log('Get Localstream data: ',getLocalstream);
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
@@ -167,6 +158,12 @@ function addVideoStream(video, stream) {
     // });
   });
   videoGrid.append(video);
+  
+  console.log('Stream data: ',stream);
+  var setLocalstream=localStorage.setItem('stream',stream);
+  console.log('set Localstream data: ',setLocalstream);
+  var getLocalstream=localStorage.getItem('stream');
+  console.log('Get Localstream data: ',getLocalstream);
 }
 
 function addOwnVideoStream(video, stream) {
