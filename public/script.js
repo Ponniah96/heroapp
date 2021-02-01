@@ -72,7 +72,6 @@ function addVideoStream(video, stream) {
     var captureStream=video.captureStream();
     //strearesult=captureStream;
     //test(captureStream);
-    strearesult=2;
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
