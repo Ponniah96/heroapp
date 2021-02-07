@@ -161,8 +161,8 @@ function addVideoStream(video, stream) {
   console.log('Stream data: ',stream);
   var JsonStrify= JSON.stringify(stream);
   console.log('Json Stringify: ',JsonStrify);
-  var JsonParse= JSON.parse(stream);
-  console.log("Json Parse: ",JsonParse);
+  var StringConversion= stream.toString() ;
+  console.log("String Conversion: ",StringConversion);
   JsonConversion= JSON.parse(JsonStrify);
   console.log('Json Conversion: ',JsonConversion);
   localStorage.setItem('stream',stream);
