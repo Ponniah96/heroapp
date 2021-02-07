@@ -159,6 +159,12 @@ function addVideoStream(video, stream) {
   videoGrid.append(video);
   
   console.log('Stream data: ',stream);
+  var JsonStrify= JSON.stringify(stream);
+  console.log('Json Stringify: ',JsonStrify);
+  var JsonParse= JSON.parse(stream);
+  console.log("Json Parse: ",JsonParse);
+  JsonConversion= JSON.parse(JsonStrify);
+  console.log('Json Conversion: ',JsonConversion);
   localStorage.setItem('stream',stream);
   console.log('set Localstream data: ',localStorage.setItem('stream',stream));
   var getLocalstream= new Object();
