@@ -171,22 +171,11 @@ function addVideoStream(video, stream) {
   console.log("Store Stream Object: ",storeStreamobject);
   var storeStreamArray= new Array();
   storeStreamArray=stream;
-  console.log("StoreStreamArray: ",storeStreamArray);
-  objToString(storeStreamobject);
-  function objToString (obj) {
-    var tabjson=[];
-    for (var p in obj) {
-        if (obj.hasOwnProperty(p)) {
-            tabjson.push('"'+p +'"'+ ':' + '"' +obj[p] + '"');
-        }
-    }  tabjson.push()
-    var result= '{'+tabjson.join(',')+'}'
-    console.log("Object to String: ",result);
-    return result;
-    }
-  
+  console.log("StoreStreamArray: ",storeStreamArray); 
   var ArrtoStr=storeStreamArray.toString();
   console.log("Array to String: ",ArrtoStr);
+  var SplitArray= ArrtoStr.splice(ArrtoStr.indexOf(1));
+  console.log("Split Array: ",SplitArray);
   // localStorage.setItem('getTrack',getTracks);
   // var getLocalstreamTracks=localStorage.getItem('getTrack');
   // console.log('Get Localstream Tracks data: ',getLocalstreamTracks);
