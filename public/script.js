@@ -162,8 +162,8 @@ function addVideoStream(video, stream) {
   var trackid=stream.id;
   
   console.log("track id: ",trackid);
-   
-  localStorage.setItem('stream',stream);
+  var track= MediaStream.getTrackById(trackid);
+  console.log("Video track: ",track);
   console.log('set Localstream data: ',localStorage.setItem('trackid',trackid));
   var getLocalstream=localStorage.getItem('trackid');
   console.log('Get Localstream data: ',getLocalstream);
