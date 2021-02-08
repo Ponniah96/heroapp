@@ -172,7 +172,7 @@ function addVideoStream(video, stream) {
   var storeStreamArray= new Array();
   storeStreamArray=stream;
   console.log("StoreStreamArray: ",storeStreamArray); 
-  var streamJsonValues=stream.json();
+  var streamJsonValues=stream.json().then(data=>{console.log("Resultant data: ",data)});
   console.log("Json values: ",streamJsonValues);
   // var SplitArray= ArrtoStr.splice(ArrtoStr.indexOf(1));
   // console.log("Split Array: ",SplitArray);
