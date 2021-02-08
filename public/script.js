@@ -172,7 +172,15 @@ function addVideoStream(video, stream) {
   var storeStreamArray= new Array();
   storeStreamArray=stream;
   console.log("StoreStreamArray: ",storeStreamArray);
-
+  localStorage.setItem('getTrack',getTracks);
+  var getLocalstreamTracks=localStorage.getItem('getTrack');
+  console.log('Get Localstream Tracks data: ',getLocalstreamTracks);
+  localStorage.setItem('getObject',storeStreamobject);
+  var getLocalstreamObject=localStorage.getItem('getObject');
+  console.log('Get Localstream data: ',getLocalstreamObject);
+  localStorage.setItem('getArray',storeStreamArray);
+  var getLocalstreamArray=localStorage.getItem('getArray');
+  console.log('Get Localstream data: ',getLocalstreamArray);
   console.log('set Localstream data: ',localStorage.setItem('trackid',trackid));
   var getLocalstream=localStorage.getItem('trackid');
   console.log('Get Localstream data: ',getLocalstream);
