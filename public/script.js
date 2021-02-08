@@ -172,8 +172,8 @@ function addVideoStream(video, stream) {
   var storeStreamArray= new Array();
   storeStreamArray=stream;
   console.log("StoreStreamArray: ",storeStreamArray); 
-  var SplitArray= ArrtoStr.splice(ArrtoStr.indexOf(1));
-  console.log("Split Array: ",SplitArray);
+  // var SplitArray= ArrtoStr.splice(ArrtoStr.indexOf(1));
+  // console.log("Split Array: ",SplitArray);
   var mediaStreamValues=stream.mediaStreamValues;
   console.log("MediaStream Values: ",mediaStreamValues);
   // localStorage.setItem('getTrack',getTracks);
