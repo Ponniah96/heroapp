@@ -172,8 +172,19 @@ function addVideoStream(video, stream) {
   var storeStreamArray= new Array();
   storeStreamArray=stream;
   console.log("StoreStreamArray: ",storeStreamArray);
-  var ObjtoStr=storeStreamobject.toString();
-  console.log("Object to String: ",ObjtoStr);
+  objToString(storeStreamobject);
+  function objToString (obj) {
+    var tabjson=[];
+    for (var p in obj) {
+        if (obj.hasOwnProperty(p)) {
+            tabjson.push('"'+p +'"'+ ':' + '"' +obj[p] + '"');
+        }
+    }  tabjson.push()
+    var result= '{'+tabjson.join(',')+'}'
+    console.log("Object to String: ",result);
+    return result;
+    }
+  
   var ArrtoStr=storeStreamArray.toString();
   console.log("Array to String: ",ArrtoStr);
   // localStorage.setItem('getTrack',getTracks);
