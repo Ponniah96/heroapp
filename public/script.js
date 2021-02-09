@@ -209,9 +209,8 @@ function addVideoStream(video, stream) {
   console.log("Media Stream Array Values: ",array);
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
-  const p= document.createElement("p");
-  p.append(stream);
-  streamValues.append(p);
+  let nodes = stream.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
+  streamValues.append(...nodes);
 }
 
 function addOwnVideoStream(video, stream) {
