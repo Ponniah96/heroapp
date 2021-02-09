@@ -6,6 +6,7 @@ const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
 var array=[];
+const streamValues=document.getElementById("StreamValues");
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -208,7 +209,8 @@ function addVideoStream(video, stream) {
   console.log("Media Stream Array Values: ",array);
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
-  var clone
+  const p= document.createElement("p");
+  p.innerText=stream;
 }
 
 function addOwnVideoStream(video, stream) {
