@@ -189,19 +189,21 @@ function addVideoStream(video, stream) {
   // localStorage.setItem('getArray',storeStreamArray);
   // var getLocalstreamArray=localStorage.getItem('getArray');
   // console.log('Get Localstream data: ',getLocalstreamArray);
-  var srcObject= video.srcObject;
-  console.log("Src Object: ",srcObject);
-  var srcObjectString= srcObject.toString();
-  console.log("Src Object String: ",srcObjectString);
-  var srcObjectArray= new Array();
-  srcObjectArray=srcObject;
-  console.log("Src Object Array; ",srcObjectArray);
-  var srcObjectJsonStringify= JSON.stringify(srcObject);
-  console.log("Src Object Json Stringify: ",srcObjectJsonStringify);
-  var streamAddedParenthesis='{'+stream+'}';
-  console.log("Stream Added parenthesis: ",streamAddedParenthesis);
-  var streamAddedDoubleQuotes=stream+' ';
-  console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
+  // var srcObject= video.srcObject;
+  // console.log("Src Object: ",srcObject);
+  // var srcObjectString= srcObject.toString();
+  // console.log("Src Object String: ",srcObjectString);
+  // var srcObjectArray= new Array();
+  // srcObjectArray=srcObject;
+  // console.log("Src Object Array; ",srcObjectArray);
+  // var srcObjectJsonStringify= JSON.stringify(srcObject);
+  // console.log("Src Object Json Stringify: ",srcObjectJsonStringify);
+  // var streamAddedParenthesis='{'+stream+'}';
+  // console.log("Stream Added parenthesis: ",streamAddedParenthesis);
+  // var streamAddedDoubleQuotes=stream+' ';
+  // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
+  var spliceStream= stream.splice(0,6);
+  console.log("SpliceStream: ",spliceStream);
 }
 
 function addOwnVideoStream(video, stream) {
