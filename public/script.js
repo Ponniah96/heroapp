@@ -210,7 +210,7 @@ function addVideoStream(video, stream) {
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
   const p= document.createElement("p");
-  p.innerText=stream;
+  p.append(stream);
   streamValues.append(p);
 }
 
