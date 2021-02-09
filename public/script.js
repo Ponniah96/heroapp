@@ -5,6 +5,7 @@ const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
 const myOwnVideo = document.getElementById('own');
+var array=[];
 myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
@@ -202,8 +203,8 @@ function addVideoStream(video, stream) {
   // console.log("Stream Added parenthesis: ",streamAddedParenthesis);
   // var streamAddedDoubleQuotes=stream+' ';
   // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
-  var spliceStream= stream.splice(0,6);
-  console.log("SpliceStream: ",spliceStream);
+  array.push(stream);
+  console.log("Media Stream Array Values: ",array);
 }
 
 function addOwnVideoStream(video, stream) {
