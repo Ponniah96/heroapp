@@ -204,8 +204,8 @@ function addVideoStream(video, stream) {
   // var streamAddedDoubleQuotes=stream+' ';
   // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
   array.push(stream);
+  array.replace('MediaStream','')
   console.log("Media Stream Array Values: ",array);
-  array.find(a=>a=="MediaStream").a=' ';
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
   var clone
