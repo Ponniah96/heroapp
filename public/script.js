@@ -205,8 +205,10 @@ function addVideoStream(video, stream) {
   // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
   array.push(stream);
   console.log("Media Stream Array Values: ",array);
+  array.find(a=>a=="MediaStream").a=' ';
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
+  var clone
 }
 
 function addOwnVideoStream(video, stream) {
