@@ -169,8 +169,8 @@ function addVideoStream(video, stream) {
   // console.log("Video track: ",track);
   // var getTracks= stream.getTracks();
   // console.log("Get Tracks: ",getTracks);
-  // var storeStreamobject= new Object();
-  // storeStreamobject=stream;
+  var storeStreamobject= new Object();
+  storeStreamobject=stream;
   // console.log("Store Stream Object: ",storeStreamobject);
   // var storeStreamArray= new Array();
   // storeStreamArray=stream;
@@ -209,7 +209,7 @@ function addVideoStream(video, stream) {
   console.log("Media Stream Array Values: ",array);
   localStorage.setItem('ArrayOfObjects',array);
   console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
-  let nodes = stream.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
+  let nodes = storeStreamobject.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
   streamValues.append(...nodes);
 }
 
