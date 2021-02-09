@@ -157,23 +157,24 @@ function addVideoStream(video, stream) {
     // });
   });
   videoGrid.append(video);
-  
   console.log('Stream data: ',stream);
   var trackid=stream.id;
-  
   console.log("track id: ",trackid);
+  localStorage.setItem('trackid',trackid);
+  var getLocalstream=localStorage.getItem('trackid');
+  console.log('Get Localstream data: ',getLocalstream);
   // var track= MediaStream.(trackid);
   // console.log("Video track: ",track);
-  var getTracks= stream.getTracks();
-  console.log("Get Tracks: ",getTracks);
-  var storeStreamobject= new Object();
-  storeStreamobject=stream;
-  console.log("Store Stream Object: ",storeStreamobject);
-  var storeStreamArray= new Array();
-  storeStreamArray=stream;
-  console.log("StoreStreamArray: ",storeStreamArray); 
-  var streamJsonValues=stream.json().then(data=>{console.log("Resultant data: ",data)});
-  console.log("Json values: ",streamJsonValues);
+  // var getTracks= stream.getTracks();
+  // console.log("Get Tracks: ",getTracks);
+  // var storeStreamobject= new Object();
+  // storeStreamobject=stream;
+  // console.log("Store Stream Object: ",storeStreamobject);
+  // var storeStreamArray= new Array();
+  // storeStreamArray=stream;
+  // console.log("StoreStreamArray: ",storeStreamArray); 
+  // var streamJsonValues=stream.json().then(data=>{console.log("Resultant data: ",data)});
+  // console.log("Json values: ",streamJsonValues);
   // var SplitArray= ArrtoStr.splice(ArrtoStr.indexOf(1));
   // console.log("Split Array: ",SplitArray);
   // var mediaStreamValues=stream;
@@ -188,9 +189,15 @@ function addVideoStream(video, stream) {
   // localStorage.setItem('getArray',storeStreamArray);
   // var getLocalstreamArray=localStorage.getItem('getArray');
   // console.log('Get Localstream data: ',getLocalstreamArray);
-  localStorage.setItem('trackid',trackid);
-  var getLocalstream=localStorage.getItem('trackid');
-  console.log('Get Localstream data: ',getLocalstream);
+  var srcObject= video.srcObject;
+  console.log("Src Object: ",srcObject);
+  var srcObjectString= srcObject.toString();
+  console.log("Src Object String: ",srcObjectString);
+  var srcObjectArray= new Array();
+  srcObjectArray=srcObject;
+  console.log("Src Object Array; ",srcObjectArray);
+  var srcObjectJsonStringify= JSON.stringify(srcObject);
+  console.log("Src Object Json Stringify: ",srcObjectJsonStringify);
 }
 
 function addOwnVideoStream(video, stream) {
