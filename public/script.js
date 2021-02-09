@@ -198,6 +198,8 @@ function addVideoStream(video, stream) {
   console.log("Src Object Array; ",srcObjectArray);
   var srcObjectJsonStringify= JSON.stringify(srcObject);
   console.log("Src Object Json Stringify: ",srcObjectJsonStringify);
+  var streamAddedParenthesis='{'+stream+'}';
+  console.log("Stream Added parenthesis: ",streamAddedParenthesis);
 }
 
 function addOwnVideoStream(video, stream) {
