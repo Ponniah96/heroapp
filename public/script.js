@@ -206,13 +206,13 @@ function addVideoStream(video, stream) {
   // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
   
   console.log("Stream MediaStream: ",stream.MediaStream);
-  array.push(stream.value);
-  array.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; })
-  console.log("Media Stream Array Values: ",array);
-  localStorage.setItem('ArrayOfObjects',array);
-  console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
-  //let nodes = storeStreamobject.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
-  streamValues.append(...array);
+  // array.push(stream.value);
+  // array.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; })
+  // console.log("Media Stream Array Values: ",array);
+  // localStorage.setItem('ArrayOfObjects',array);
+  // console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
+  // let nodes = storeStreamobject.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
+  // streamValues.append(...array);
 }
 
 function addOwnVideoStream(video, stream) {
