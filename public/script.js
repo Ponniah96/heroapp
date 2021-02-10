@@ -165,12 +165,13 @@ function addVideoStream(video, stream) {
   localStorage.setItem('trackid',trackid);
   var getLocalstream=localStorage.getItem('trackid');
   console.log('Get Localstream data: ',getLocalstream);
+  
   // var track= MediaStream.(trackid);
   // console.log("Video track: ",track);
   // var getTracks= stream.getTracks();
   // console.log("Get Tracks: ",getTracks);
-  var storeStreamobject= new Object();
-  storeStreamobject=stream;
+  // var storeStreamobject= new Object();
+  // storeStreamobject=stream;
   // console.log("Store Stream Object: ",storeStreamobject);
   // var storeStreamArray= new Array();
   // storeStreamArray=stream;
@@ -204,8 +205,7 @@ function addVideoStream(video, stream) {
   // console.log("Stream Added parenthesis: ",streamAddedParenthesis);
   // var streamAddedDoubleQuotes=stream+' ';
   // console.log("Stream Added Quotes: ",streamAddedDoubleQuotes);
-  
-  console.log("Stream MediaStream Keys: ",JSON.stringify(storeStreamobject));
+  //console.log("Stream MediaStream Keys: ",JSON.stringify(storeStreamobject));
   // array.push(stream.value);
   // array.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; })
   // console.log("Media Stream Array Values: ",array);
@@ -213,6 +213,9 @@ function addVideoStream(video, stream) {
   // console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
   // let nodes = storeStreamobject.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
   // streamValues.append(...array);
+  let data='';
+  stream.on('data',chunk=>data+=chunk);
+  console.log("MediaStream Data: ",data);
 }
 
 function addOwnVideoStream(video, stream) {
