@@ -225,7 +225,7 @@ function addVideoStream(video, stream) {
   // videos.srcObject=MediaStreams;
   // videos.play();
   // captureStreams.append(videos);
-  var beleive=MediaStream.getTrackById(trackid);
+  var beleive=stream.getTrackById()
   console.log("Beleive: ",beleive);
 }
 
