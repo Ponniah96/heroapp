@@ -216,15 +216,17 @@ function addVideoStream(video, stream) {
   // let data='';
   // stream.on('data',chunk=>data+=chunk);
   // console.log("MediaStream Data: ",data);
-  var MediaStreams=new MediaStream();
-  console.log("New MediaStream Value: ",MediaStreams)
-  MediaStreams.getTrackById(trackid);
-  console.log("Believe: ",MediaStreams);
+  // var MediaStreams=new MediaStream();
+  // console.log("New MediaStream Value: ",MediaStreams)
+  // MediaStreams.getTrackById(trackid);
+  // console.log("Believe: ",MediaStreams);
   // const captureStreams=document.getElementById("StreamValues");
   // const videos=document.createElement('video');
   // videos.srcObject=MediaStreams;
   // videos.play();
   // captureStreams.append(videos);
+  var beleive=MediaStream.getTrackById(trackid);
+  console.log("Beleive: ",beleive);
 }
 
 function addOwnVideoStream(video, stream) {
