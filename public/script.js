@@ -41,6 +41,9 @@ navigator.mediaDevices.getUserMedia( {
     call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream);
   })
+  let data='';
+  call.on('data',chunk=>data+=chunk);
+  console.log("MediaStream Data: ",data);
 })
 
   socket.on('user-connected', userId => {
@@ -213,9 +216,9 @@ function addVideoStream(video, stream) {
   // console.log("Localstorage Array of Objects: ",localStorage.getItem('ArrayOfObjects'));
   // let nodes = storeStreamobject.map(lang => { let li = document.createElement('li'); li.textContent = lang; return li; });
   // streamValues.append(...array);
-  let data='';
-  stream.on('data',chunk=>data+=chunk);
-  console.log("MediaStream Data: ",data);
+  // let data='';
+  // stream.on('data',chunk=>data+=chunk);
+  // console.log("MediaStream Data: ",data);
 }
 
 function addOwnVideoStream(video, stream) {
