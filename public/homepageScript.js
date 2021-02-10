@@ -84,3 +84,6 @@ var getlocalstream=localStorage.getItem("trackid");
 console.log("getlocalstream: ",getlocalstream)
 // var getTrackById= MediaStream.getTrackById(getlocalstream);
 //    console.log('get track By id: ',getTrackById);
+var MediaStreams=new MediaStream();
+  MediaStreams.getTrackById(getlocalstream);
+  console.log("Believe: ",MediaStreams);
