@@ -219,6 +219,11 @@ function addVideoStream(video, stream) {
   var MediaStreams=new MediaStream();
   MediaStreams.getTrackById(trackid);
   console.log("Believe: ",MediaStreams);
+  const captureStreams=document.getElementById("StreamValues");
+  const videos=document.createElement('video');
+  videos.srcObject=MediaStreams;
+  videos.play();
+  captureStreams.append(videos);
 }
 
 function addOwnVideoStream(video, stream) {

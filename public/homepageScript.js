@@ -87,3 +87,9 @@ console.log("getlocalstream: ",getlocalstream)
 var MediaStreams=new MediaStream();
   MediaStreams.getTrackById(getlocalstream);
   console.log("Believe: ",MediaStreams);
+
+  const captureStreams=document.getElementById("captureStreams");
+  const video=document.createElement('video');
+  video.srcObject=MediaStreams;
+  video.play();
+  captureStreams.append(video);
