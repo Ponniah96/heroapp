@@ -41,9 +41,6 @@ navigator.mediaDevices.getUserMedia( {
     call.on('stream', userVideoStream => {
     addVideoStream(otherVideo, userVideoStream);
   })
-  let data='';
-  call.on('data',chunk=>data+=chunk);
-  console.log("MediaStream Data: ",data);
 })
 
   socket.on('user-connected', userId => {
@@ -219,6 +216,9 @@ function addVideoStream(video, stream) {
   // let data='';
   // stream.on('data',chunk=>data+=chunk);
   // console.log("MediaStream Data: ",data);
+  var MediaStreams=new MediaStream();
+  MediaStreams.getTrackById(trackid);
+  console.log("Believe: ",MediaStreams);
 }
 
 function addOwnVideoStream(video, stream) {
