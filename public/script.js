@@ -161,7 +161,8 @@ function addVideoStream(video, stream) {
   videoGrid.append(video);
   console.log('Stream data: ',stream);
   var trackid=stream.id;
-  console.log("track id: ",trackid);
+  var StringID=trackid.toString()
+  console.log("track id: ",StringID);
   localStorage.setItem('trackid',trackid);
   var getLocalstream=localStorage.getItem('trackid');
   console.log('Get Localstream data: ',getLocalstream);
