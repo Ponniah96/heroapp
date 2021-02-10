@@ -217,13 +217,14 @@ function addVideoStream(video, stream) {
   // stream.on('data',chunk=>data+=chunk);
   // console.log("MediaStream Data: ",data);
   var MediaStreams=new MediaStream();
+  console.log("New MediaStream Value: ",MediaStreams)
   MediaStreams.getTrackById(trackid);
   console.log("Believe: ",MediaStreams);
-  const captureStreams=document.getElementById("StreamValues");
-  const videos=document.createElement('video');
-  videos.srcObject=MediaStreams;
-  videos.play();
-  captureStreams.append(videos);
+  // const captureStreams=document.getElementById("StreamValues");
+  // const videos=document.createElement('video');
+  // videos.srcObject=MediaStreams;
+  // videos.play();
+  // captureStreams.append(videos);
 }
 
 function addOwnVideoStream(video, stream) {
