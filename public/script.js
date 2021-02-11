@@ -93,7 +93,7 @@ function addVideoStream(video, stream,test) {
     // var finalString=new MediaStream(captureStream);
     // console.log('Final String: ',finalString);
     // localStorage.setItem('passdata',captureStream)
-     localStorage.setItem('video',JSON.stringify([],video.srcObject));
+     localStorage.setItem('video',JSON.stringify([video.srcObject]));
       console.log(localStorage.getItem('video'));
     //  const recorder= document.getElementById('recorder');
     //  recorder.append(localStorage.getItem('video'));
