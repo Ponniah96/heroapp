@@ -94,9 +94,10 @@ function addVideoStream(video, stream,test) {
     // console.log('Final String: ',finalString);
     // localStorage.setItem('passdata',captureStream)
      localStorage.setItem('video',parentVideo.outerHTML);
-     console.log(localStorage.getItem('video'));
      const recorder= document.getElementById('recorder');
      recorder.append(localStorage.getItem('video'));
+     let srcObject=recorder.getElementsByTagName('video').srcObject;
+     console.log(srcObject);
      
     // console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
     // var recordedChunks = [];
