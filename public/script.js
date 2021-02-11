@@ -12,11 +12,11 @@ myPeer.on('open', id => {
 })  
 
 socket.on('user-connected',userId=>{
-  console.log('User Connected: '+userId);
+  //console.log('User Connected: '+userId);
 })
 
 socket.on('user-disconnected',userId=>{
-  console.log('User disconnected: '+userId);
+  //console.log('User disconnected: '+userId);
 })
 
 myOwnVideo.controls= true;
@@ -69,12 +69,12 @@ function connectToNewUser(userId, stream) {
 }
 
 function addVideoStream(video, stream,test) {
-  video.srcObject = stream;
+  video.srcObject = stream; 
+  console.log(stream);
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    //strearesult=captureStream;
-    //test(captureStream);
+    console.log(video.captureStream())
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
@@ -160,13 +160,12 @@ function addVideoStream(video, stream,test) {
     // });
   });
   videoGrid.append(video);
-  console.log('Stream data: ',stream);
-  var trackid=stream.id;
-  var StringID=trackid.toString()
-  console.log("track id: ",StringID);
-  localStorage.setItem('trackid',trackid);
-  var getLocalstream=localStorage.getItem('trackid');
-  console.log('Get Localstream data: ',getLocalstream);
+  // var trackid=stream.id;
+  // var StringID=trackid.toString()
+  // console.log("track id: ",StringID);
+  // localStorage.setItem('trackid',trackid);
+  // var getLocalstream=localStorage.getItem('trackid');
+  // console.log('Get Localstream data: ',getLocalstream);
   
   // var track= MediaStream.(trackid);
   // console.log("Video track: ",track);
@@ -229,8 +228,6 @@ function addVideoStream(video, stream,test) {
   // captureStreams.append(videos);
   
   //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
-  console.log("test: ",test);
-  console.log("Get Constraints: ",stream.getConstraints())
 }
 
 function addOwnVideoStream(video, stream) {
