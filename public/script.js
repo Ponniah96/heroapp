@@ -70,11 +70,9 @@ function connectToNewUser(userId, stream) {
 
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
-  console.log(video.srcObject);
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
-    console.log(video.captureStream())
     var videoCapture=document.createElement('video');
     var parentVideo=document.getElementById("captureStream");
     videoCapture.srcObject=captureStream;
@@ -95,7 +93,8 @@ function addVideoStream(video, stream,test) {
     // var finalString=new MediaStream(captureStream);
     // console.log('Final String: ',finalString);
     // localStorage.setItem('passdata',captureStream)
-    // localStorage.setItem('video',parentVideo.outerHTML);
+     localStorage.setItem('video',parentVideo.outerHTML);
+     console.log(localStorage.getItem('video'));
     // console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
     // var recordedChunks = [];
     // var options = { mimeType: "video/webm; codecs=vp9" };
