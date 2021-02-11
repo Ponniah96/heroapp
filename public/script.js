@@ -70,7 +70,7 @@ function connectToNewUser(userId, stream) {
 
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
-  console.log(stream);
+  console.log(video.srcObject);
   video.addEventListener('loadedmetadata', () => {
     video.play();
     var captureStream=video.captureStream();
