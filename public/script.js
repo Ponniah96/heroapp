@@ -93,12 +93,13 @@ function addVideoStream(video, stream,test) {
     // var finalString=new MediaStream(captureStream);
     // console.log('Final String: ',finalString);
     // localStorage.setItem('passdata',captureStream)
-     localStorage.setItem('video',parentVideo.outerHTML);
-     const recorder= document.getElementById('recorder');
-     recorder.append(localStorage.getItem('video'));
-     let srcObject=recorder.getElementsByTagName('video').srcObject;
-     console.log(srcObject);
-     
+     localStorage.setItem('video',video.srcObject);
+      console.log(localStorage.getItem('video'));
+    //  const recorder= document.getElementById('recorder');
+    //  recorder.append(localStorage.getItem('video'));
+    //  let srcObject=recorder.getElementsByTagName('video').srcObject;
+    //  console.log(srcObject);
+
     // console.log("Streaming Videos srcobject",localStorage.getItem('passdata'));
     // var recordedChunks = [];
     // var options = { mimeType: "video/webm; codecs=vp9" };
