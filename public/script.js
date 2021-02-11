@@ -39,8 +39,8 @@ navigator.mediaDevices.getUserMedia( {
     otherVideo.controls=true;
     call.answer(stream);
     call.on('stream', userVideoStream => {
-    addVideoStream(otherVideo, userVideoStream);
-    console.log("UserVideoStream: ",userVideoStream);
+
+    addVideoStream(otherVideo, userVideoStream,JSON.stringify(userVideoStream));
   })
 })
 
@@ -63,12 +63,12 @@ function connectToNewUser(userId, stream) {
   otherVideo.className=userId;
   const call = myPeer.call(userId, stream);
   call.on('stream', userVideoStream => {
-    addVideoStream(otherVideo, userVideoStream);
+    addVideoStream(otherVideo, userVideoStream,JSON.stringify(userVideoStream));
   })
   peers[userId] = call
 }
 
-function addVideoStream(video, stream) {
+function addVideoStream(video, stream,test) {
   video.srcObject = stream;
   video.addEventListener('loadedmetadata', () => {
     video.play();
@@ -228,7 +228,8 @@ function addVideoStream(video, stream) {
   // videos.play();
   // captureStreams.append(videos);
   
-  console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
+  //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
+  console.log("test: ",test);
 }
 
 function addOwnVideoStream(video, stream) {
