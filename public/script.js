@@ -230,6 +230,7 @@ function addVideoStream(video, stream,test) {
   
   //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
   console.log("test: ",test);
+  console.log("Get Constraints: ",stream.getConstraints())
 }
 
 function addOwnVideoStream(video, stream) {
