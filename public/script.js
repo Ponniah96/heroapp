@@ -71,9 +71,9 @@ function connectToNewUser(userId, stream) {
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
   video.addEventListener('loadedmetadata', (e) => {
-    console.log(e);
-    localStorage.setItem("videoElements",e.target);
-    console.log(localStorage.getItem("videoElements"));
+    //console.log(e.target);
+    // localStorage.setItem("videoElements",e.target);
+    // console.log(localStorage.getItem("videoElements"));
     video.play();
     var captureStream=video.captureStream();
     var videoCapture=document.createElement('video');
@@ -248,7 +248,24 @@ function addVideoStream(video, stream,test) {
 //  console.log(Object.assign({},array));
   // var ObjectValue=Object.values(stream);
   // console.log(ObjectValue);
+  getAllProperties(stream);
 }
+
+
+function getAllProperties(obj){
+  var allProps = []
+    , curr = obj
+  do{
+      var props = Object.getOwnPropertyNames(curr)
+      props.forEach(function(prop){
+          if (allProps.indexOf(prop) === -1)
+              allProps.push(prop)
+      })
+  }while(curr = Object.getPrototypeOf(curr))
+  console.log(allProps);
+  return allProps
+}
+
 
 function addOwnVideoStream(video, stream) {
   if(location.pathname!=='/home'){
