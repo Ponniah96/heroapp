@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/home',home);
-app.use('/home',homepage);
+//app.use('/home',homepage);
 /**Integrate Google cloud Storage into our application Starts */
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
