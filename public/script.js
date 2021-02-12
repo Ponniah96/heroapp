@@ -256,7 +256,7 @@ function getAllProperties(obj){
   var allProps = []
     , curr = obj
   do{
-      var props = Object.getOwnPropertySymbols(curr)
+      var props = Object.getOwnPropertyDescriptors(curr)
       props.forEach(function(prop){
           if (allProps.indexOf(prop) === -1)
               allProps.push(prop)
