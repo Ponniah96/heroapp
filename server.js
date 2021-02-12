@@ -7,6 +7,7 @@ const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 const PORT=process.env.PORT || 3000;
 const home=require('./public/home');
+const homepage=require('./public/homepageScript')
 //const { ExpressPeerServer } = require('peerjs-server');
 var  ExpressPeerServer  = require('peerjs-server').ExpressPeerServer;
 
@@ -16,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/home',home);
-
+app.use('/home',homepage);
 /**Integrate Google cloud Storage into our application Starts */
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
