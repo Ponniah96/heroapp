@@ -1,4 +1,4 @@
-const {Storage} = require('@google-cloud/storage');
+import { Storage } from '@google-cloud/storage';
 
 const gc = new Storage({
   keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
