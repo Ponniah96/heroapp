@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "peerjs-server": "^0.2.9",
     "socket.io": "^2.3.0",
+    "uniq": "^1.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

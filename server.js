@@ -20,18 +20,18 @@ app.use('/home',home);
 //app.use('/home',homepage);
 /**Integrate Google cloud Storage into our application Starts */
 // Imports the Google Cloud client library
-const {Storage} = require('@google-cloud/storage');
+// const {Storage} = require('@google-cloud/storage');
 
-const gc = new Storage({
-  keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
-  projectId: "bell-3"
-});
+// const gc = new Storage({
+//   keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
+//   projectId: "bell-3"
+// });
 
-const firstbucket=gc.bucket('bell-3_first_bucket');
-console.log("first bucket: ",firstbucket);
+// const firstbucket=gc.bucket('bell-3_first_bucket');
+// console.log("first bucket: ",firstbucket);
 
-const videostreaming = gc.bucket("video-streaming1");
-console.log('Video Streaming: ',videostreaming);
+// const videostreaming = gc.bucket("video-streaming1");
+// console.log('Video Streaming: ',videostreaming);
 /**Integrate Google cloud Storage into our application Ends */
 
 /**Integrate PeerServer into our application Starts */
