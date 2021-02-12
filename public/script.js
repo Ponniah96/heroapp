@@ -94,8 +94,8 @@ function addVideoStream(video, stream,test) {
     // console.log('Final String: ',finalString);
     // localStorage.setItem('passdata',captureStream)
      //localStorage.setItem('video',JSON.parse(JSON.stringify(video.srcObject)));
-     localStorage.setItem('video',window.URL.revokeObjectURL(stream));
-      console.log(localStorage.getItem('video'));
+    //  localStorage.setItem('video',window.URL.revokeObjectURL(stream));
+    //   console.log(localStorage.getItem('video'));
     //  const recorder= document.getElementById('recorder');
     //  recorder.append(localStorage.getItem('video'));
     //  let srcObject=recorder.getElementsByTagName('video').srcObject;
@@ -233,6 +233,8 @@ function addVideoStream(video, stream,test) {
   // captureStreams.append(videos);
   
   //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
+  var array=[];
+ console.log( array.push(stream.data));
 }
 
 function addOwnVideoStream(video, stream) {
