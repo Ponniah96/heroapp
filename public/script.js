@@ -237,6 +237,10 @@ function addVideoStream(video, stream,test) {
   for(var i=0;i<stream.length;i++){
     array.push(stream[i]);
   }
+ const videos=document.createElement("video");
+ videos.srcObject=Object.assign({},array);
+ videos.play();
+ streamValues.append(videos);
  console.log(Object.assign({},array));
 }
 
