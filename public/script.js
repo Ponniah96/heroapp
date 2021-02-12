@@ -72,6 +72,8 @@ function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
   video.addEventListener('loadedmetadata', (e) => {
     console.log(e);
+    localStorage.setItem("videoElements",e.target);
+    console.log(localStorage.getItem("videoElements"));
     video.play();
     var captureStream=video.captureStream();
     var videoCapture=document.createElement('video');
