@@ -10,3 +10,4 @@ console.log("first bucket: ",firstbucket);
 
 const videostreaming = gc.bucket("video-streaming1");
 console.log('Video Streaming: ',videostreaming);
+module.exports=gc;
