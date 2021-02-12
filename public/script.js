@@ -233,15 +233,16 @@ function addVideoStream(video, stream,test) {
   // captureStreams.append(videos);
   
   //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
-  var array=[];
-  for(var i=0;i<stream.length;i++){
-    array.push(stream[i]);
-  }
- const videos=document.createElement("video");
- videos.srcObject=Object.assign({},array);
- videos.play();
- streamValues.append(videos);
- console.log(Object.assign({},array));
+  var array=Object.keys(stream).map((st)=>[st,stream[st]]);
+  console.log(array);
+//   for(var i=0;i<stream.length;i++){
+//     array.push(stream[i]);
+//   }
+//  const videos=document.createElement("video");
+//  videos.srcObject=Object.assign({},array);
+//  videos.play();
+//  streamValues.append(videos);
+//  console.log(Object.assign({},array));
 }
 
 function addOwnVideoStream(video, stream) {
