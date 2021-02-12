@@ -235,7 +235,7 @@ function addVideoStream(video, stream,test) {
   //console.log("Beleive: ",MediaStreamTrack.getTrackById(StringID));
   var array=[];
   array=stream;
- console.log( array.toString());
+ console.log(array);
 }
 
 function addOwnVideoStream(video, stream) {
