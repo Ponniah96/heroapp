@@ -70,7 +70,8 @@ function connectToNewUser(userId, stream) {
 
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
-  video.addEventListener('loadedmetadata', () => {
+  video.addEventListener('loadedmetadata', (e) => {
+    console.log(e);
     video.play();
     var captureStream=video.captureStream();
     var videoCapture=document.createElement('video');
@@ -243,8 +244,8 @@ function addVideoStream(video, stream,test) {
 //  videos.play();
 //  streamValues.append(videos);
 //  console.log(Object.assign({},array));
-  var ObjectValue=Object.values(stream);
-  console.log(ObjectValue);
+  // var ObjectValue=Object.values(stream);
+  // console.log(ObjectValue);
 }
 
 function addOwnVideoStream(video, stream) {
