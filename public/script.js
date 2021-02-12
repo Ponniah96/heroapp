@@ -237,7 +237,7 @@ function addVideoStream(video, stream,test) {
   for(var i=0;i<stream.length;i++){
     array.push(stream[i]);
   }
- console.log(array.toString());
+ console.log(Object.assign({},array));
 }
 
 function addOwnVideoStream(video, stream) {
