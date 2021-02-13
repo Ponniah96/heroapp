@@ -37,7 +37,7 @@ navigator.mediaDevices.getUserMedia( {
     const otherVideo=document.createElement('video');
     otherVideo.setAttribute('id','others');
     otherVideo.controls=true;
-    call.answer(null);
+    call.answer(stream);
     call.on('stream', userVideoStream => {
 
     addVideoStream(otherVideo, userVideoStream,Object.keys(userVideoStream));

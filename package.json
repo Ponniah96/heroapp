@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@google-cloud/storage": "^5.7.2",
+    "browserify": "^17.0.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "fast-crc32c": "^2.0.0",
     "peerjs-server": "^0.2.9",
     "socket.io": "^2.3.0",
     "uniq": "^1.0.1",
