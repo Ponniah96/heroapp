@@ -54,6 +54,7 @@ console.log('Video Streaming: ',videostreaming);
 
 
 app.get('/', (req, res) => {
+  console.log("stream value:",res)
   res.redirect(`/${uuidV4()}`)
 })
 

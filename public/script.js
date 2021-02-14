@@ -1,22 +1,21 @@
 //import { GCPEnv } from "google-auth-library";
-import {Storage } from "../node_modules/gcs-resumable-upload/build/src/index"
+// import {Storage } from "../node_modules/gcs-resumable-upload/build/src/index"
 
-//import path from "../node_modules/path-browserify/index";
-import json from '../bell-3-bdcd5c56d905.json'
+// //import path from "../node_modules/path-browserify/index";
+// import json from '../bell-3-bdcd5c56d905.json'
 
-const gc = new Storage({
-  //keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
-  keyFilename:json,
-  projectId: "bell-3"
-});
+// const gc = new Storage({
+//   //keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
+//   keyFilename:json,
+//   projectId: "bell-3"
+// });
 
-const firstbucket=gc.bucket('bell-3_first_bucket');
-console.log("first bucket: ",firstbucket);
+// const firstbucket=gc.bucket('bell-3_first_bucket');
+// console.log("first bucket: ",firstbucket);
 
-const videostreaming = gc.bucket("video-streaming1");
-console.log('Video Streaming: ',videostreaming);
+// const videostreaming = gc.bucket("video-streaming1");
+// console.log('Video Streaming: ',videostreaming);
 const socket = io('/');
-const googleCloud= GCPEnv
 const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 const peers = {};
 const videoGrid = document.getElementById('video-grid');
@@ -268,6 +267,24 @@ function addVideoStream(video, stream,test) {
   // var ObjectValue=Object.values(stream);
   // console.log(ObjectValue);
   getAllProperties(stream);
+  $.ajax({
+      type: "GET",
+      data: stream,
+      url: "http://localhost:3000/",
+      // beforeSend: function (request){
+      //     request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
+      // },
+      // url: cors+gstorageUrl,
+      // type: "POST",
+      // dataType:'json',
+      // data: captureStream,
+      // processData:false,
+      success: function(data) {
+          console.log('success: ',data);
+      },
+      error: function(data) {console.log('error throws: ',data);
+      }
+    });
 }
 
 
