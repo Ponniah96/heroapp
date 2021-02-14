@@ -1,5 +1,6 @@
-import { GCPEnv } from "google-auth-library";
-import {Storage } from "@google-cloud/storage";
+//import { GCPEnv } from "google-auth-library";
+import {Storage } from "../node_modules/gcs-resumable-upload/build/src/index"
+
 import path from "path";
 
 const gc = new Storage({
