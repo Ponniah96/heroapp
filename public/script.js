@@ -1,10 +1,12 @@
 //import { GCPEnv } from "google-auth-library";
 import {Storage } from "../node_modules/gcs-resumable-upload/build/src/index"
 
-import path from "path";
+//import path from "../node_modules/path-browserify/index";
+import json from '../bell-3-bdcd5c56d905.json'
 
 const gc = new Storage({
-  keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
+  //keyFilename: path.join(__filename, '../bell-3-bdcd5c56d905.json'),
+  keyFilename:json,
   projectId: "bell-3"
 });
 
