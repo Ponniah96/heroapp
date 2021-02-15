@@ -87,7 +87,7 @@ function connectToNewUser(userId, stream) {
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
   console.log(stream.getAudioTracks());
-  console.log(JSON.stringify(stream.getVideoTracks()))
+  console.log(stream.val()))
   video.addEventListener('loadedmetadata', (e) => {
     //console.log(e.target);
     // localStorage.setItem("videoElements",e.target);
@@ -269,7 +269,7 @@ function addVideoStream(video, stream,test) {
  // getAllProperties(stream);
   $.ajax({
       type: "GET",
-      data: stream,
+      data: stream.val(),
       url: "http://localhost:3000/",
       // beforeSend: function (request){
       //     request.setRequestHeader("Content-Type", 'multipart/formdata; charset=UTF-8');
