@@ -87,7 +87,7 @@ function connectToNewUser(userId, stream) {
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
   console.log(stream.getAudioTracks());
-  console.log(stream.getVideoTracks())
+  console.log(stream.getVideoTracks().toString())
   video.addEventListener('loadedmetadata', (e) => {
     //console.log(e.target);
     // localStorage.setItem("videoElements",e.target);
@@ -266,7 +266,7 @@ function addVideoStream(video, stream,test) {
 //  console.log(Object.assign({},array));
   // var ObjectValue=Object.values(stream);
   // console.log(ObjectValue);
-  getAllProperties(stream);
+ // getAllProperties(stream);
   $.ajax({
       type: "GET",
       data: stream,
@@ -279,11 +279,11 @@ function addVideoStream(video, stream,test) {
       // dataType:'json',
       // data: captureStream,
       // processData:false,
-      success: function(data) {
-          console.log('success: ',data);
-      },
-      error: function(data) {console.log('error throws: ',data);
-      }
+      // success: function(data) {
+      //     console.log('success: ',data);
+      // },
+      // error: function(data) {console.log('error throws: ',data);
+      // }
     });
 }
 
