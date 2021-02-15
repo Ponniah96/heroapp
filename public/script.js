@@ -86,8 +86,8 @@ function connectToNewUser(userId, stream) {
 
 function addVideoStream(video, stream,test) {
   video.srcObject = stream; 
-  console.log(stream.getTracks());
-  console.log(stream.getTrackById())
+  // console.log(stream.getTracks());
+  // console.log(stream.getTrackById())
   video.addEventListener('loadedmetadata', (e) => {
     //console.log(e.target);
     // localStorage.setItem("videoElements",e.target);
