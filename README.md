@@ -18,5 +18,5 @@ npm run devStart
 
 npm i -g peer
 
-peerjs --port 3001
+peerjs --port 443
 
