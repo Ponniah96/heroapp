@@ -13,6 +13,8 @@ npm i express ejs socket.io
 
 npm i uuid
 
+npm i @google-cloud/storage
+
 npm i --save-dev nodemon
 
 npm run devStart
