@@ -9,7 +9,7 @@ git clone https://github.com/Ponniah96/heroapp.git
 
 npm init -y
 
-npm express ejs socket.io
+npm i express ejs socket.io
 
 npm i uuid
 
