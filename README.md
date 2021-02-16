@@ -3,12 +3,6 @@
 
 #In first window, run below commands. after maping it into exact file location.
 
-git init
-
-git clone https://github.com/Ponniah96/heroapp.git
-
-npm init -y
-
 npm i express ejs socket.io
 
 npm i uuid
