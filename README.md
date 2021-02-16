@@ -5,7 +5,7 @@
 
 git init
 
-git clone https://github.com/WebDevSimplified/Zoom-Clone-With-WebRTC
+git clone https://github.com/Ponniah96/heroapp.git
 
 npm init -y
 
