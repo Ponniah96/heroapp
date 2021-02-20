@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        const ROOM_ID = "<%= roomID %>"
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src='index.js'></script>
+    <style>
+        #call {
+            background: limegreen;
+            color: white;
+            border: 1px solid limegreen;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-right: 20px;
+        }
+
+        #stream {
+            background: red !important;
+            color: white !important;
+            border: 1px solid red !important;
+            padding: 10px 20px !important;
+            border-radius: 4px !important;
+        }
+
+        /* #camera-on {
+      background: limegreen;
+      color: white;
+      border: 1px solid limegreen;
+      padding: 10px 20px;
+      border-radius: 4px;
+    } */
+    </style>
+    <title>HomePage</title>
+
+</head>
+
+<body>
+    <p style="text-align: center;margin: 50px"><a id='call'>Join Video Call</a><a id='stream'>Watch Streaming</a>
+    </p>
+</body>
+
+</html>
