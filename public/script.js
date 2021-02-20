@@ -1,5 +1,5 @@
 const socket = io('/');
-const myPeer  = new Peer({host:'/', port:3001});
+const myPeer  = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443});
 const peers = {};
 const videoGrid = document.getElementById('video-grid');
 const ownvideoGrid = document.getElementById('own-video-grid');
@@ -10,7 +10,7 @@ myPeer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id);
 })  
 
-myOwnVideo.controls= true;
+myOwnVideo.controls= false;
 myOwnVideo.muted=true;
 myOwnVideo.poster="https://image.shutterstock.com/image-vector/vector-live-stream-icon-flat-260nw-1282569241.jpg"
 

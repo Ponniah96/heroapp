@@ -8,12 +8,15 @@
   <script>
     const ROOM_ID = "<%= roomId %>"
   </script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="styles/room.css" rel="stylesheet" ></link>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> 
   <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js" defer></script>
   <script src="/socket.io/socket.io.js" defer></script>
   <script src="script.js" defer type="module"></script>
   <title>Video Calling Website</title>
-  <style>
+  <!-- <style>
     body {
       margin: 0px;
       padding: 0px;
@@ -116,21 +119,71 @@
       width: 100%;
       object-fit: cover;
     }
-  </style>
+  </style> -->
 </head>
 
 <body>
-  <div id='header'>Welcome to Video Calling using Node js</div>
+  <header>
+    <nav class="menum navbar navbar-light navbar-expand-md justify-content-center fixed-top">
+      <div class="container">
+  
+      <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+        <ul class="topBotomBordersOut navbar-nav mx-auto text-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"> <a class="nav-link" href="#">Services</a> 
+          <li class="nav-item"> <a class="nav-link" href="#">Portfolio</a> 
+          <li class="nav-item"> <a class="nav-link" href="#">Blog</a> 
+          <li class="nav-item"> <a class="nav-link" href="#">Contact</a> 
+          </li>
+        </ul>
+      </div>
+      </div>   
+    </nav>
+  </header>
+  <section>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div id="own-video-grid">
+            <video id="own" autoplay playsinline  controls="false" ></video>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div id="own-video-grid">
+            <video id="own" autoplay playsinline controls="false"></video>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div id="own-video-grid">
+            <video id="own" autoplay playsinline controls="false"></video>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- <div id="own-video-grid">
+      <video id="own" autoplay playsinline></video>
+    </div> -->
+  </section>
 
   <!-- <div id="screen-share">
     <p>Click the Start Capture button to begin.</p>
     <p><button id="start">Start Sharing</button>&nbsp;<button id="camera-on">Camera on</button></p>
   </div> -->
-
-  <div id="own-video-grid">
-    <video id="own" autoplay playsinline></video>
-  </div>
-
+  
+<!-- 
   <div id="video-grid">
     Other Calls
   </div>
@@ -139,7 +192,7 @@
     Capture Streams
   </div>
   <div id="StreamValues"></div>
-  <div id="recorder"></div>
+  <div id="recorder"></div> -->
 </body>
 
 </html>
