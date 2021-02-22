@@ -15,23 +15,29 @@
     <style>
         .CTA-sections{
             margin: 50px auto;
-            text-align: center
+            text-align: center;
+            display: flex;
         }
         #call {
-            background: limegreen;
-            color: white;
-            border: 1px solid limegreen;
-            padding: 10px 20px;
-            border-radius: 4px;
-            margin-right: 20px;
-        }
-
+            display: block;
+            width: 65px;
+            background: url(phone-call.svg) no-repeat;
+            background-size: contain;
+            height: 65px;
+            background-color: #8bc34a;
+            border-radius: 50%; 
+            cursor: pointer; 
+            border: 1px solid red;
+        } 
         #stream {
-            background: red !important;
-            color: white !important;
-            border: 1px solid red !important;
-            padding: 10px 20px !important;
-            border-radius: 4px !important;
+            display: block;
+            width: 63px;
+            margin-left: 15px; 
+            background: url(audio-icon-hover.png) no-repeat;
+            background-size: contain;
+            height: 63px; 
+            border-radius: 50%;
+           
         }
 
         /* #camera-on {
@@ -41,14 +47,40 @@
       padding: 10px 20px;
       border-radius: 4px;
     } */
+
+
+
+    * {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+    .IndexPage {
+        height: 100vh;
+        width: 100%;
+        background: rgb(2,0,36);
+        background:  linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(3 3 76) 35%, rgb(0 14 16) 100%);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+    }
     </style>
     <title>HomePage</title>
 
 </head>
 
-<body>
-    <p class="CTA-sections" ><a id='call'>Join Video Call</a><a id='stream'>Watch Streaming</a>
-    </p>
+<body class="IndexPage">
+    <div class="ActionBtn">
+        <p class="CTA-sections" > 
+            <a id='call'>
+                
+            </a>
+            <a id='stream'> 
+                 
+            </a>
+        </p>
+    </div>
 </body>
 
 </html>

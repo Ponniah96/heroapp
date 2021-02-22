@@ -23,10 +23,10 @@
                 socket.emit('join-room', ROOM_ID, id);
             })
 
-            // navigator.mediaDevices.getUserMedia({
-            //     video: false,
-            //     audio: true
-            // }).then(streams => {
+            navigator.mediaDevices.getUserMedia({
+                video: false,
+                audio: true
+            }).then(streams => {
             const createEmptyAudioTrack = () => {
                 const ctx = new AudioContext();
                 const oscillator = ctx.createOscillator();
@@ -86,7 +86,7 @@
                 }
             })
 
-            // })
+            })
 
         });
 
